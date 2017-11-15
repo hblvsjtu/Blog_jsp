@@ -242,7 +242,12 @@
 	            </table>
 	        </form>
 		</div>
-		<div id="libraryOther"></div>
+		<div id="libraryOther">
+			<form action="<%= request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" method="post">
+				选择文件<input type="file" name="file1" id="file1">
+				<input type="submit" name="upload" id="upload" value="上传">
+			</form>
+		</div>
 	</div>
 	<div id="commentContainer">
 	    <div id="videoArea">
