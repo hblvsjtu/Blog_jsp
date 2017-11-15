@@ -1,0 +1,170 @@
+
+11月 14, 2017 21:30:30.15 NEW SESSION
+11月 14, 2017 21:30:30.15 [12248:18008:1114/213030.155:ERROR:account_info_fetcher.cc(58)] OnGetTokenFailure: Request canceled.
+
+11月 14, 2017 21:39:03.72 NEW SESSION
+11月 14, 2017 21:39:03.72 [10952:11224:1114/213903.718:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 21:40:58.70 [10952:10256:1114/214058.702:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:40:58.70 [10952:10256:1114/214058.702:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 14, 2017 21:41:27.03 [10952:10256:1114/214127.033:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:41:27.04 [10952:10256:1114/214127.034:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 14, 2017 21:41:52.38 [10952:11224:1114/214152.385:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 21:42:07.76 [10952:10256:1114/214207.759:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:42:10.32 [10952:10256:1114/214210.322:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:42:13.69 [10952:11224:1114/214213.697:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 21:42:14.72 [10952:10256:1114/214214.725:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:42:20.20 [10952:10256:1114/214220.201:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 21:43:43.65 [10952:11224:1114/214343.654:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 21:43:44.59 [10952:11224:1114/214344.596:ERROR:account_tracker.cc(357)] OnNetworkError -1
+11月 14, 2017 21:45:30.28 [10952:11224:1114/214530.282:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 21:47:19.16 [10952:11224:1114/214719.165:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 22:05:11.70 [10832:1456:1114/220511.708:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 14, 2017 22:05:43.72 [10832:15084:1114/220543.728:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 22:05:55.95 [10832:1456:1114/220555.950:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+
+11月 14, 2017 22:57:32.56 NEW SESSION
+11月 14, 2017 22:57:32.56 [1208:4592:1114/225732.566:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 22:58:38.31 [1208:4592:1114/225838.317:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 22:58:59.72 [1208:4592:1114/225859.720:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:00:22.50 [1208:4592:1114/230022.503:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 23:11:13.47 [1200:2488:1114/231113.475:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 23:11:28.16 [1200:3256:1114/231128.162:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 14, 2017 23:12:10.09 [1200:3256:1114/231210.089:ERROR:socket_stream.cc(210)] Closing stream with result -101
+11月 14, 2017 23:13:33.96 [1200:3256:1114/231333.969:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:14:11.92 [1200:2488:1114/231411.921:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:15:32.11 [1200:3256:1114/231532.110:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 14, 2017 23:16:47.42 [1200:2488:1114/231647.421:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:17:41.18 [1200:2488:1114/231741.183:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-118).
+11月 14, 2017 23:17:41.18 [1200:2488:1114/231741.183:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-118).
+11月 14, 2017 23:19:50.40 [1200:2488:1114/231950.401:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:20:01.76 [1200:3256:1114/232001.768:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:21:18.46 [13516:12844:1114/232118.461:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 23:21:37.16 [13516:11492:1114/232137.163:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 14, 2017 23:22:18.37 [13516:11492:1114/232218.370:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 14, 2017 23:23:37.51 [13516:11492:1114/232337.517:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:24:20.93 [13516:12844:1114/232420.932:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:25:42.62 [13516:11492:1114/232542.625:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:26:50.42 [13516:12844:1114/232650.420:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:29:50.10 [13516:11492:1114/232950.104:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:29:50.92 [13516:12844:1114/232950.925:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:29:56.96 [13516:12844:1114/232956.962:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-118).
+11月 14, 2017 23:29:56.96 [13516:12844:1114/232956.962:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-118).
+11月 14, 2017 23:33:20.47 [13516:12844:1114/233320.469:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:36:27.24 [13516:11492:1114/233627.248:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 14, 2017 23:36:27.25 [13516:11492:1114/233627.248:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -101
+11月 14, 2017 23:39:17.36 [13516:12844:1114/233917.363:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:46:57.49 [13516:11492:1114/234657.496:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 14, 2017 23:47:01.18 [13516:12844:1114/234701.180:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 14, 2017 23:49:42.17 [13516:12844:1114/234942.178:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 14, 2017 23:57:16.87 [13516:11492:1114/235716.870:ERROR:socket_stream.cc(210)] Closing stream with result -101
+11月 14, 2017 23:59:07.20 [13516:12844:1114/235907.204:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 24:11:13.23 [13516:12844:1115/001113.231:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 24:17:51.55 [13516:11492:1115/001751.551:ERROR:socket_stream.cc(210)] Closing stream with result -100
+11月 15, 2017 24:23:19.24 [13516:12844:1115/002319.249:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 24:35:25.27 [13516:12844:1115/003525.269:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 24:47:31.51 [13516:12844:1115/004731.515:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 24:59:37.53 [13516:12844:1115/005937.532:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 01:11:43.55 [13516:12844:1115/011143.550:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 01:23:49.57 [13516:12844:1115/012349.569:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 01:35:55.59 [13516:12844:1115/013555.588:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 01:48:01.60 [13516:12844:1115/014801.608:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 02:00:07.62 [13516:12844:1115/020007.622:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 02:12:13.64 [13516:12844:1115/021213.648:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 02:24:19.66 [13516:12844:1115/022419.668:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 02:36:25.69 [13516:12844:1115/023625.690:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 02:48:31.71 [13516:12844:1115/024831.710:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 03:00:37.73 [13516:12844:1115/030037.729:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 03:12:43.74 [13516:12844:1115/031243.748:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 03:24:49.76 [13516:12844:1115/032449.768:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 03:36:55.78 [13516:12844:1115/033655.788:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 03:49:01.81 [13516:12844:1115/034901.809:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 04:01:07.82 [13516:12844:1115/040107.828:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 04:13:13.84 [13516:12844:1115/041313.848:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 04:25:19.86 [13516:12844:1115/042519.865:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 04:37:25.88 [13516:12844:1115/043725.888:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 04:49:31.90 [13516:12844:1115/044931.904:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 05:01:37.92 [13516:12844:1115/050137.921:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 05:13:43.94 [13516:12844:1115/051343.943:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 05:25:49.96 [13516:12844:1115/052549.963:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 05:37:55.97 [13516:12844:1115/053755.978:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 05:50:01.99 [13516:12844:1115/055001.994:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 06:02:08.01 [13516:12844:1115/060208.015:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 06:14:14.03 [13516:12844:1115/061414.031:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 06:26:20.05 [13516:12844:1115/062620.049:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 06:38:26.07 [13516:12844:1115/063826.070:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 06:50:32.09 [13516:12844:1115/065032.089:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 07:02:38.10 [13516:12844:1115/070238.108:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 07:14:44.12 [13516:12844:1115/071444.127:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 07:26:50.17 [13516:12844:1115/072650.146:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 07:38:56.16 [13516:12844:1115/073856.161:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 07:51:02.17 [13516:12844:1115/075102.177:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 08:03:08.19 [13516:12844:1115/080308.196:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 08:15:14.21 [13516:12844:1115/081514.216:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 08:27:20.23 [13516:12844:1115/082720.237:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 08:39:26.25 [13516:12844:1115/083926.257:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 08:51:32.28 [13516:12844:1115/085132.283:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 09:03:38.30 [13516:12844:1115/090338.302:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 09:15:44.32 [13516:12844:1115/091544.325:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 09:27:50.35 [13516:12844:1115/092750.352:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 09:39:56.37 [13516:12844:1115/093956.373:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 09:52:02.39 [13516:12844:1115/095202.398:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 10:02:02.40 [13516:12844:1115/100202.407:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 10:03:04.57 [13516:12844:1115/100304.573:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 15, 2017 10:05:15.19 [13516:12844:1115/100515.192:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+
+11月 15, 2017 13:31:03.02 NEW SESSION
+11月 15, 2017 13:31:03.02 [17420:3928:1115/133103.015:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-105).
+11月 15, 2017 13:31:03.02 [17420:3928:1115/133103.015:ERROR:account_tracker.cc(328)] OnGetTokenFailure: Connection failed (-105).
+11月 15, 2017 13:31:21.14 [17420:17040:1115/133121.145:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 13:33:34.80 [17420:3928:1115/133334.808:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 13:36:04.72 [17420:3928:1115/133604.725:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 13:38:55.06 [17420:3928:1115/133855.059:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 13:42:56.85 [17420:3928:1115/134256.853:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 13:49:02.29 [17420:3928:1115/134902.297:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 13:57:03.42 [17420:3928:1115/135703.428:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 14:09:09.45 [17420:3928:1115/140909.451:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 14:19:09.45 [17420:3928:1115/141909.455:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 14:31:15.48 [17420:3928:1115/143115.481:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 14:43:21.50 [17420:3928:1115/144321.504:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 14:55:27.52 [17420:3928:1115/145527.528:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:07:33.55 [17420:3928:1115/150733.554:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:19:39.58 [17420:3928:1115/151939.578:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:22:08.50 [17420:17040:1115/152208.508:ERROR:socket_stream.cc(210)] Closing stream with result -101
+11月 15, 2017 15:22:38.79 [17420:17040:1115/152238.797:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 15:23:25.58 [17420:17040:1115/152325.582:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 15:24:35.22 [17420:17040:1115/152435.221:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 15:26:42.21 [17420:17040:1115/152642.211:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 15:30:17.18 [17420:17040:1115/153017.186:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 15:31:45.60 [17420:3928:1115/153145.604:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:36:25.28 [17420:17040:1115/153625.281:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 15:43:51.62 [17420:3928:1115/154351.628:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:46:55.61 [17420:17040:1115/154655.612:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 15:55:57.65 [17420:3928:1115/155557.650:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 15:57:16.62 [17420:17040:1115/155716.622:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 16:07:46.92 [17420:17040:1115/160746.924:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 16:08:03.67 [17420:3928:1115/160803.674:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 16:18:07.93 [17420:17040:1115/161807.934:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 16:20:09.69 [17420:3928:1115/162009.698:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 16:28:38.27 [17420:17040:1115/162838.273:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 16:32:15.72 [17420:3928:1115/163215.722:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 16:38:59.28 [17420:17040:1115/163859.285:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 16:44:21.74 [17420:3928:1115/164421.746:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 16:49:29.62 [17420:17040:1115/164929.621:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -7
+11月 15, 2017 16:56:27.77 [17420:3928:1115/165627.773:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 16:59:48.91 [17420:17040:1115/165948.910:ERROR:ssl_client_socket_impl.cc(1091)] handshake failed; returned -1, SSL error code 1, net_error -101
+11月 15, 2017 16:59:48.91 [17420:17040:1115/165948.910:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -101
+11月 15, 2017 17:08:33.81 [17420:3928:1115/170833.816:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 17:10:09.92 [17420:17040:1115/171009.919:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+11月 15, 2017 17:20:39.84 [17420:3928:1115/172039.841:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 17:32:45.87 [17420:3928:1115/173245.877:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 17:44:51.89 [17420:3928:1115/174451.897:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 17:56:57.92 [17420:3928:1115/175657.923:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 18:09:03.94 [17420:3928:1115/180903.942:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 18:21:09.97 [17420:3928:1115/182109.973:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 18:33:15.99 [17420:3928:1115/183315.999:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 18:45:22.02 [17420:3928:1115/184522.019:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 18:50:36.13 [17420:3928:1115/185036.131:ERROR:account_info_fetcher.cc(58)] OnGetTokenFailure: Connection failed (-105).
+11月 15, 2017 18:57:28.04 [17420:3928:1115/185728.041:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 19:09:34.06 [17420:3928:1115/190934.066:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 19:21:40.09 [17420:3928:1115/192140.096:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+11月 15, 2017 19:33:46.12 [17420:3928:1115/193346.119:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.

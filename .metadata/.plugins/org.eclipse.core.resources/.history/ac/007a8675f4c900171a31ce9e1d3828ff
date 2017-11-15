@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#library{
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	margin-left:16em;
+}
+		#bookInfor{
+			box-flex:1;
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+				#bookInforForm{  
+				      width:100%; 
+				}
+						#bookInforTable{  
+				      width:100%; 
+				}
+
+		#checkEmailAndPhone{
+			width:20em;
+		}
+				#checkForm{  
+				      width:100%; 
+				}
+						#checkTable{  
+						      width:100%; 
+						}
+#bookInfor,#checkEmailAndPhone{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}				

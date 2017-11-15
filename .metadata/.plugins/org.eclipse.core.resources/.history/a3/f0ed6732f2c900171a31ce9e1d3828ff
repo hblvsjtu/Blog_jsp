@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#library{
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	margin-left: 16em;
+}
+
+		#checkForm{
+			padding-top: 310px;
+			width:100%;
+		}
+				#checkTable{  
+				      border-collapse:collapse; 
+				      width:100%; 
+				}

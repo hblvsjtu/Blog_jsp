@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#library{
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	position:relative;
+	margin-left: 16em;
+}
+
+		#bookInforForm{
+			padding-top: 310px;
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+				#bookInforTable{  
+				      width:100%; 
+				}
+
+		#checkForm{
+			padding-top: 310px;
+			width:20em;
+		}
+				#checkTable{  
+				      width:100%; 
+				}
+		
+#bookInforForm,#checkForm{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+				

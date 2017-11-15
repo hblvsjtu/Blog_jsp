@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#checkForm{
+	padding-top: 310px;
+	width:100%;
+}
+#checkTable{  
+      border-collapse:collapse; 
+      width:100%; 
+  }

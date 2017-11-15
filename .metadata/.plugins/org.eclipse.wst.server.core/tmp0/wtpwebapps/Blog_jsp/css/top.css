@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#top {
+	width: 100%;
+    background-color: black;
+    color: white;
+    padding:0.3em; 
+    padding-bottom: 0px;
+}
+.center{
+	width:20em;
+	margin:0.1em auto;
+}
+#vistorNumber,#vistorNumberTime{
+	border:transparent; 
+	background-color:black; 
+	color:white;
+	margin-top: 1px;
+}
+#vistor input[id^="btn_"]{
+	border: 0.2em solid;
+	border-radius:0.3em;
+}
+#vistor input[id^="btn_"]:hover{
+	background-color: yellow;
+	transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2)
+}
