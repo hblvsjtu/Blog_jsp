@@ -47,6 +47,7 @@
 	            <li><a href="#theam_服务器端">服务器端</a></li>
 	            <li><a href="/Blog_jsp/html/Login.html">用户登陆界面</a></li>
 	            <li><a href="/Blog_jsp/TestServlet">访问TestServlet</a></li>
+	            <li><a href="/Blog_jsp/TestJDBCServlet">访问TestJDBC</a></li>
 	        </ul>
 	        <P id="myTime">2017-11-09</P>
 	    </nav>
@@ -97,7 +98,7 @@
 	        </section>
 	    </div>
 	    <div id="myAside">
-	        <form name="form1" method="post" action="/Blog_jsp/jsp/Login_Check.jsp" target="_blank"  >
+	        <form name="form1" method="post" action="<%= request.getContextPath()%>/LoginCheckServlet" target="_blank"  >
 	            <%
 	                Cookie[] cookies=request.getCookies();
 	                String cookieUser="";
@@ -110,7 +111,12 @@
 	                        };
 	                    };
 	                }
-	                if ("".equals(cookieUser)&&"".equals(cookieData)){
+	                boolean flag=false;
+	                if(application.getAttribute("flag")=="true"){
+	                	flag=true;
+	                }
+	                boolean booleanCookie="".equals(cookieUser) && "".equals(cookieData);
+	                if (booleanCookie && !(flag)){
 	            %>
 	            <table id="myTable">
 	                <tr>
@@ -141,9 +147,11 @@
 	                    </td>
 	                </tr>
 	                <tr>
-	                    <td colspan="2" align="center"><input type="submit" name="Button" class="btn_grey" value="登陆" onclick="check()">
-	                        &nbsp;
-	                        <input type="reset" name="Submit2" class="btn_grey" value="重置">
+	                    <td colspan="2" align="center">
+	                    	<input type="submit" id="signin" name="signin" class="btn_grey" value="登陆" onclick="check()"/>&nbsp;&nbsp;
+	                        <input type="button" id="signup" name="signup" class="btn_grey" value="注册">&nbsp;&nbsp;
+	                        <input type="reset" name="Submit2" class="btn_grey" value="重置">&nbsp;&nbsp;
+	                        
 	                    </td>
 	                </tr>
 	                <tr>
@@ -201,19 +209,23 @@
 				<caption>添加图书信息</caption>
 				<tr>
 					<td>图书编号：</td>
-					<td><input type="text" id="inputBookInforNumber" name="inputBookInforNumber"/></td>
+					<td><input type="text" id="inputBookInforID" name="inputBookInforID"/></td>
 				</tr>
 				<tr>
 					<td>图书名称：</td>
 					<td><input type="text" id="inputBookInforName" name="inputBookInforName" /></td>
 				</tr>
 				<tr>
-					<td>作&nbsp;&nbsp;&nbsp;&nbsp;者：</td>
+					<td>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</td>
 					<td><input type="text" id="inputBookInforAuthor" name="inputBookInforAuthor" /></td>
 				</tr>
 				<tr>
-					<td>价&nbsp;&nbsp;&nbsp;&nbsp;格：</td>
+					<td>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</td>
 					<td><input type="text" id="inputBookInforPrice" name="inputBookInforPrice"/></td>
+				</tr>
+				<tr>
+					<td>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</td>
+					<td><input type="text" id="inputBookInforNumber" name="inputBookInforNumber"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit" id="inputBookInforSummit" name="inputBookInforSummit" value="提交"></td>
@@ -242,7 +254,12 @@
 	            </table>
 	        </form>
 		</div>
-		<div id="libraryOther"></div>
+		<div id="libraryOther">
+			<form action="<%= request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" method="post">
+				选择文件<input type="file" name="file1" id="file1">
+				<input type="submit" name="upload" id="upload" value="上传">
+			</form>
+		</div>
 	</div>
 	<div id="commentContainer">
 	    <div id="videoArea">

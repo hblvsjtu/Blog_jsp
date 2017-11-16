@@ -1,4 +1,4 @@
-package com.lvhongbin.servlet;
+package com.lvhongbin.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;

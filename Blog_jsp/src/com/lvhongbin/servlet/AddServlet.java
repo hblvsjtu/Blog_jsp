@@ -41,15 +41,17 @@ public class AddServlet extends HttpServlet {
 		System.out.println("=========== AddServlet ===========");
 		System.out.println("执行了AddServlet中的doPost方法");
 		PrintWriter out =response.getWriter();
-		String id=request.getParameter("inputBookInforNumber");
+		String id=request.getParameter("inputBookInforID");
 		String name=request.getParameter("inputBookInforName");
 		String author=request.getParameter("inputBookInforAuthor");
 		String price=request.getParameter("inputBookInforPrice");
+		String number=request.getParameter("inputBookInforNumber");
 		out.print("<h2>图书信息添加成功</h2><hr>");
 		out.print("图书编号："+id+"<br>");
 		out.print("图书名称："+name+"<br>");
 		out.print("作者："+author+"<br>");
 		out.print("价格："+price+"<br>");
+		out.print("数量："+number+"<br>");
 		System.out.println("=========== AddServlet ===========");
 		System.out.println("结束了AddServlet中的doPost方法");
 		

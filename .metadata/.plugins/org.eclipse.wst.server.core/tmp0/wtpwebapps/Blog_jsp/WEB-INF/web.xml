@@ -11,7 +11,7 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>TestServlet</servlet-name>
-    <servlet-class>com.lvhongbin.servlet.TestServlet</servlet-class>
+    <servlet-class>com.lvhongbin.test.TestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
@@ -29,10 +29,21 @@
     <servlet-name>MyTitleServlet</servlet-name>
     <servlet-class>com.lvhongbin.servlet.MyTitleServlet</servlet-class>
     <init-param>
-    	<param-name>myTitle</param-name>
-    	<param-value>不良工科生的架构之路</param-value>
+      <param-name>myTitle</param-name>
+      <param-value>不良工科生的架构之路</param-value>
     </init-param>
   </servlet>
+  
+  <servlet>
+  	<servlet-name>LoginCheckServlet</servlet-name>
+  	<servlet-class>com.lvhongbin.servlet.LoginCheckServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginCheckServlet</servlet-name>
+  	<url-pattern>/LoginCheckServlet</url-pattern>
+  </servlet-mapping>
+  
+  
   <filter>
     <filter-name>CountFilter</filter-name>
     <filter-class>com.lvhongbin.filter.CountFilter</filter-class>
