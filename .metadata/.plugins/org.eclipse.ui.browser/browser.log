@@ -1,0 +1,60 @@
+
+11月 19, 2017 13:33:34.24 NEW SESSION
+11月 19, 2017 13:33:34.24 [43068:44448:1119/133334.237:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 13:34:00.57 [43068:44448:1119/133400.569:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 13:36:58.77 [43068:44448:1119/133658.771:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+
+11月 19, 2017 14:21:46.12 NEW SESSION
+11月 19, 2017 14:21:46.12 [43304:38752:1119/142146.116:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:24:15.81 [43304:38752:1119/142415.816:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:27:12.96 [43304:38752:1119/142712.967:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:30:41.18 [43304:38752:1119/143041.188:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:36:39.29 [43304:38752:1119/143639.294:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:44:35.96 [43304:38752:1119/144435.967:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 14:56:41.98 [43304:38752:1119/145641.989:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 15:08:48.03 [43304:38752:1119/150848.029:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 15:20:54.06 [43304:38752:1119/152054.062:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 17:56:56.06 [41100:32868:1119/175656.060:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 17:58:01.80 [41100:35564:1119/175801.808:ERROR:gpu_process_transport_factory.cc(992)] Lost UI shared context.
+11月 19, 2017 17:59:25.73 [41100:32868:1119/175925.734:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:04:13.51 [46512:42140:1119/180413.509:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:04:36.80 [46512:42140:1119/180436.804:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:07:34.40 [46512:42140:1119/180734.407:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:11:05.76 [46512:42140:1119/181105.767:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:16:02.43 [46512:42140:1119/181602.436:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:23:45.89 [46512:42140:1119/182345.898:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:35:51.93 [46512:42140:1119/183551.930:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:47:57.94 [46512:42140:1119/184757.946:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 18:59:16.10 [2692:47556:1119/185916.104:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:04:34.91 [36900:43736:1119/190434.914:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:07:09.81 [36900:43736:1119/190709.812:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:10:15.27 [36900:43736:1119/191015.279:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:13:52.78 [36900:43736:1119/191352.786:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:17:13.47 [36900:43736:1119/191713.479:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:25:08.35 [36900:43736:1119/192508.358:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:37:14.37 [36900:43736:1119/193714.375:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 19:49:20.39 [36900:43736:1119/194920.396:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:01:26.41 [36900:43736:1119/200126.410:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:06:24.89 [47996:35852:1119/200624.898:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:08:52.98 [47996:35852:1119/200852.983:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:11:56.33 [47996:35852:1119/201156.334:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:13:42.24 [47996:35852:1119/201342.242:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:17:22.78 [47996:35852:1119/201722.785:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:26:38.55 [47996:35852:1119/202638.554:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:34:28.70 [33416:47556:1119/203428.705:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:34:53.82 [33416:47556:1119/203453.821:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:35:45.78 [33416:47556:1119/203545.781:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:39:27.44 [33416:47556:1119/203927.442:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+
+11月 19, 2017 20:45:43.75 NEW SESSION
+11月 19, 2017 20:45:43.75 [47324:46024:1119/204543.755:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:46:11.26 [47324:46024:1119/204611.261:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:49:04.62 [47324:46024:1119/204904.624:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:50:39.64 [47324:46024:1119/205039.642:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 20:54:25.90 [47324:46024:1119/205425.900:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 21:02:09.82 [47324:46024:1119/210209.822:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 21:14:15.85 [47324:46024:1119/211415.852:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 21:26:21.87 [47324:46024:1119/212621.874:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 21:38:27.89 [47324:46024:1119/213827.894:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 21:50:33.93 [47324:46024:1119/215033.931:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.
+11月 19, 2017 22:02:39.96 [47324:46024:1119/220239.966:ERROR:checkin_request.cc(211)] Failed to get checkin response. Fetcher failed. Retrying.

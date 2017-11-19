@@ -1,0 +1,28 @@
+@media screen and (max-width: 3000px){
+
+div img:hover{
+	-webkit-transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
+	-o-transform:rotate(30deg);
+	-webkit-transform:skew(30deg,-10deg);
+	-moz-transform:skew(30deg,-10deg);
+	-o-transform:skew(30deg,-10deg);
+	-webkit-transform:translate(-1em,-1em);
+	-moz-transform:translate(-1em,-1em);
+	-o-transform:translate(-1em,-1em);
+}
+section[id^="theam_"] header:hover{
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+
+
+#fibonacci button:hover{
+	background-color: yellow;
+	border-radius: 0.2em;
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+}
