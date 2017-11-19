@@ -2,14 +2,15 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.net.URLEncoder" %>
 <%@page import="javafx.scene.control.Alert"%>
-<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML">
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>用户注册</title>
 		<link href="css/signUp.css" type="text/css">
 		<link rel="stylesheet" type="text/css" href="/Blog_jsp/css/signUp.css">
-		<script type="text/javascript"  src="/Blog_jsp/js/signUp.js"></script>
+		<script type="text/javascript"  src="/Blog_jsp/js/signUp.js" charset="UTF-8"></script>
 		<style type="text/css">
 			body{
 				margin: 0px;font-size: 12px;
@@ -28,41 +29,64 @@
 		</style>
 		<%
 		System.out.println("======== 跳转到signUp页面 ========");
-		if(null!=request.getAttribute("signUpFlag")){
-			String signUpFlag=request.getAttribute("signUpFlag").toString();
-			User user=(User)request.getAttribute("signUpUser");
-			if("existed".equals(signUpFlag)){
-			%>	 
-			 <script type="text/javascript">
-			 	alert("用户账号已存在，请重新选择填写账号，或者选择直接登陆");
-			 </script> 
-			<%
-			System.out.println("======== 注册失败 ========");
-			request.setAttribute("signUpFlag","");
-			}else if("success".equals(signUpFlag)){
-				%>
-				 <script type="text/javascript">
-				 function alertmessage(){
-					 alert("注册成功,3秒后跳转原页面");
-				 }
-				 	setTimeout("alertmessage()", 3000); 
-				 </script>
-				<%
-				System.out.println("======== 注册成功，准备离开到signUp页面 ========");
-				Cookie cookie =new Cookie("myCookie", URLEncoder.encode(user.getName(),"UTF-8")+"#"+URLEncoder.encode(user.getDate().toString(),"UTF-8"));
-	        	cookie.setMaxAge(60*60*24*30);
-	       		response.addCookie(cookie);
-	       		response.sendRedirect("/Blog_jsp/jsp/Index.jsp");
-			}else if("fail".equals(signUpFlag)){
-				%>
-				 <script type="text/javascript">
-				 	alert("数据库写入失败,请检查拼写,3秒后跳转原页面");
-				 </script>
-				<%
-			}
-		}else{
-		 	}
+		boolean fromPageSignUpCheckServlet=false;
+		boolean isExisted=false;
+        boolean signUpFlag=false;
+        boolean isSignUpFinish=false;
+        User user =null;
+        if(null!=request.getParameter("fromPage")){
+        	fromPageSignUpCheckServlet=("SignUpCheckServlet".equals(request.getParameter("fromPage").toString()))?true:false;
+        }
+        if(null!=session.getAttribute("isSignUpFinish")){
+        	isSignUpFinish=(Boolean)session.getAttribute("isSignUpFinish");
+        }
+        if(null!=session.getAttribute("isExisted")){
+        	isExisted=(Boolean)session.getAttribute("isExisted");
+        }
+        if(null!=session.getAttribute("signUpFlag")){
+        	signUpFlag=(Boolean)session.getAttribute("signUpFlag");
+        }
+        if(null!=session.getAttribute("user")){
+        	user=(User)session.getAttribute("user");
+        }
+        if(fromPageSignUpCheckServlet){
+        	if(isSignUpFinish){
+        		if(isExisted){
+		%>	 
+					<script type="text/javascript" charset="UTF-8">
+						 alert("用户名已存在，请重新填写用户名，或者选择直接登陆");
+					</script> 
+		<%
+ 		    		System.out.println("======== 注册失败,用户账号已存在 ========");
+ 				}else if(signUpFlag){
+        %>
+					 <script type="text/javascript" charset="UTF-8">
+						 function alertmessage(){
+							 var username=window.document.getElementById("username");
+							 alert("恭喜 "+username+" ,注册成功,3秒后跳转原页面");
+						 }
+						 setTimeout("alertmessage()", 3000); 
+					 </script>
+		<%
+   						System.out.println("======== 注册成功，准备离开到signUp页面 ========");
+   			       		response.sendRedirect("/Blog_jsp/SignInCheckServlet?fromPage=signUp");
+   				}else{
+        %>
+   						 <script type="text/javascript" charset="UTF-8">
+   						 	alert("数据库写入失败,请检查拼写");
+   						 </script>
+        <%
+        		}
+        	}else{
+        %>
+					 <script type="text/javascript" charset="UTF-8">
+					 	alert("注册信息填写不完整,请重新填写");
+					 </script>
+		<%
+        	}	
+        }
 		%>
+
 	</head>
 	<body>
 		<div align="center">
@@ -71,7 +95,7 @@
 					<table align="center" border="0" width="500">
 						<tr>
 							<td align="right" width="30%" size ="9pt">用户名：</td>
-							<td><input type="text" name="username" class="box"></td>
+							<td><input  id="username" name="username" type="text"  class="box"></td>
 						</tr>
 						<tr>
 							<td align="right">密 码：</td>

@@ -15,7 +15,7 @@
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><%= application.getAttribute("myTitle")%></title>
+    <title>${sessionScope.myTitle}</title>
     <link rel="stylesheet" type="text/css" href="/Blog_jsp/css/common.css">
     <link rel="stylesheet" type="text/css" href="/Blog_jsp/css/top.css">
     <link rel="stylesheet" type="text/css" href="/Blog_jsp/css/container.css">
@@ -28,7 +28,7 @@
 	</head>
 	<body onmousedown="rightKey()" onload="load()">
 	<header id="top">
-	        <h1 align="center" id="biaoti"><%= application.getAttribute("myTitle")%></h1>
+	        <h1 align="center" id="biaoti">${sessionScope.myTitle}</h1>
 	    <h5 id="vistor">
 	        <input type="button" id="btn_checkCache" value="检查缓存" onclick="checkCache()">
 	        <input type="button" id="btn_undataCache" value="更新缓存" onclick="updateMyCache()"><br>
@@ -48,6 +48,7 @@
 	            <li><a href="/Blog_jsp/html/Login.html">用户登陆界面</a></li>
 	            <li><a href="/Blog_jsp/TestServlet">访问TestServlet</a></li>
 	            <li><a href="/Blog_jsp/TestJDBCServlet">访问TestJDBC</a></li>
+	            <li><a href="/Blog_jsp/jsp/TestEL.jsp?name=TestEL">访问TestEL</a></li>
 	        </ul>
 	        <P id="myTime">2017-11-09</P>
 	    </nav>
@@ -110,33 +111,51 @@
 	                };
 	            };
 	        }
-	        Boolean isQuitSignIn=false;
+	        boolean isQuitSignIn=false;
 	        if("true".equals(request.getParameter("isQuitSignIn"))){
 	        	isQuitSignIn=true;
 	        }
-	        Boolean isFailSignIn=false;
-	        Boolean hasSignInName=null;
-	        if("true".equals(request.getParameter("hasSignInName"))){
-	        	isFailSignIn=true;
-	        	hasSignInName=true;
+	        String fromPage="";
+	        boolean fromPageSignInCheckServlet=false;
+	        boolean isSignInFinish=false;
+	        boolean signInFlag=false;
+	        boolean hasSignInName=false;
+	        if(null!=request.getParameter("fromPage")){
+	        	fromPageSignInCheckServlet=("SignInCheckServlet".equals(request.getParameter("fromPage").toString()))?true:false;
+	        }
+	        if(null!=session.getAttribute("isSignInFinish")){
+	        	isSignInFinish=(Boolean)session.getAttribute("isSignInFinish");
+	        }
+	        if(null!=session.getAttribute("signInFlag")){
+	        	signInFlag=(Boolean)session.getAttribute("signInFlag");
+	        }
+	        if(null!=session.getAttribute("hasSignInName")){
+	        	hasSignInName=(Boolean)session.getAttribute("hasSignInName");
+	        }
+	        if(fromPageSignInCheckServlet && isSignInFinish && !signInFlag && hasSignInName){
        	%>
 	        	<script type="text/javascript">alert("密码错误，请重新登陆")</script>
 	   	<%
-	        }else if("false".equals(request.getParameter("hasSignInName"))){
-	        	isFailSignIn=true;
-	        	hasSignInName=false;
+	        }else if(fromPageSignInCheckServlet && isSignInFinish && !signInFlag && !hasSignInName){
        	%>
 	        	<script type="text/javascript">alert("用户不存在，请注册新用户 ")</script>
 	   	<%
+	        }else if(fromPageSignInCheckServlet && !isSignInFinish){
+       	%>
+	        	<script type="text/javascript">alert("登陆信息填写不完整，请填写完整! ")</script>
+	   	<%
 	        }
-	        String signInFlag="false";
-	        if (null!=request.getAttribute("signInFlag")){
-	        	signInFlag=request.getAttribute("signInFlag").toString();
-	        }
-	        boolean hasCookie=!("".equals(cookieUser) || "".equals(cookieData));
-	        if ((!hasCookie && "false".equals(signInFlag)) || isQuitSignIn || isFailSignIn){
+	        if (fromPageSignInCheckServlet && signInFlag){
 	  	%>
-	          <form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
+				<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
+			       <P>欢迎<b>${sessionScope.username}</b>再次光临</P>
+			       <P>您的注册时间是：${sessionScope.signUpTime}</P>
+			       <input type="submit" name="btnQuitSignIn" class="btn_grey" value="退出登陆">&nbsp;&nbsp;
+			  	</form> 
+ 		<%
+      		}else{
+   		%>
+   				<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
 		           <table id="myTable">
 		               <tr>
 		                   <td  colspan="2"  bgcolor="#eeeeee">·用户登录</td>
@@ -177,15 +196,7 @@
 		                   </td>
 		               </tr>
 		           </table>
-   				</form>
- 		<%
-      		}else{
-   		%>
-	            <form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
-			       <P>欢迎<b><%=cookieUser%></b>再次光临</P>
-			       <P>您的注册时间是：<%=cookieData%></P>
-			       <input type="submit" name="btnQuitSignIn" class="btn_grey" value="退出登陆">&nbsp;&nbsp;
-			  	</form>     
+   				</form>	    
       	<%
           	}
 	  	%>

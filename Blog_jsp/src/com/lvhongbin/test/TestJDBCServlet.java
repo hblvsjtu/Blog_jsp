@@ -56,7 +56,6 @@ public class TestJDBCServlet extends HttpServlet {
 		Connection conn=null;
 		Statement st=null;
 		ResultSet rs=null;
-		
 		try {
 			ConnectionFactory cf=ConnectionFactory.getInstance();
 			conn=cf.makeConnection();

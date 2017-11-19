@@ -48,8 +48,11 @@ public class ServiceSignInAndUpCheck {
 			conn.setAutoCommit(false);
 			ResultSet resultSet = jdbcoperation.get(conn, user);
 			while(resultSet.next()){
+				this.user.setName(resultSet.getString("name"));
+				this.user.setDate(resultSet.getString("signUpTime"));
 				return true;
 			}
+			System.out.println("======== 调用了ServiceSignInAndUpCheck的check()方法 ========");
 		}catch (Exception e){
 			e.printStackTrace();
 			try {
@@ -75,8 +78,10 @@ public class ServiceSignInAndUpCheck {
 			conn.setAutoCommit(false);
 			ResultSet resultSet = jdbcoperation.getName(conn, user);
 			while(resultSet.next()){
+				this.user.setName(resultSet.getString("name"));
 				return true;
 			}
+			System.out.println("======== 调用了ServiceSignInAndUpCheck的checkName()方法 ========");
 		}catch (Exception e){
 			e.printStackTrace();
 			try {

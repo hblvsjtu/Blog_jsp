@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.Locale;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MyTitleServlet
@@ -54,10 +54,8 @@ public class MyTitleServlet extends HttpServlet {
 	    }else{
 	        myTitle="不良工科生的架构之路";
 	    }
-		// 获取ServletContext
-		ServletContext context = request.getSession().getServletContext();
-		// 将来访数量值放入到ServletContext中
-		context.setAttribute("myTitle", myTitle);
+		HttpSession session=request.getSession();
+		session.setAttribute("myTitle", myTitle);
 		System.out.println("=========== MyTitleServlet ===========");
 		System.out.println("执行了MyTitleServlet中的doGet方法");
 		System.out.println("myTitle："+myTitle);
