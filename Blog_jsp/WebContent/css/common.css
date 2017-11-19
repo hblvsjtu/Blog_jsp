@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+nav{
+	position:fixed;
+    line-height:200%;
+    background-color:#eeeeee;
+    height:350px;
+    width:16em;
+    padding:5px;
+    padding-left:10px;
+	z-index:5 ;
+}
+
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+
+Table{
+	border-collapse:collapse;
+}
+
