@@ -1,4 +1,4 @@
-package com.lvhongbim.util;
+package com.lvhongbin.util;
 
 import java.io.InputStream;
 import java.sql.Connection;

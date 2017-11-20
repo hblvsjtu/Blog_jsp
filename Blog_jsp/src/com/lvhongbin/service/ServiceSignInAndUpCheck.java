@@ -5,7 +5,7 @@ package com.lvhongbin.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import com.lvhongbim.util.ConnectionFactory;
+import com.lvhongbin.util.ConnectionFactory;
 import com.lvhongbin.bean.User;
 import com.lvhongbin.jdbc.JDBCOperation;
 
