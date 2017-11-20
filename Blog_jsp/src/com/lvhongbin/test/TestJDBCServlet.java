@@ -10,8 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.lvhongbim.util.ConnectionFactory;
+import com.lvhongbin.util.ConnectionFactory;
 
 @WebServlet("/TestJDBCServlet")
 

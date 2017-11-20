@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lvhongbim.util.StandardTime;
+import com.lvhongbin.util.StandardTime;
 import com.lvhongbin.bean.User;
 import com.lvhongbin.service.ServiceSignInAndUpCheck;
 import com.lvhongbin.service.ServiceSignUpInsert;
