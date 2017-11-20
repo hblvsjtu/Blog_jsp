@@ -32,7 +32,7 @@ public class SignInCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session=request.getSession();
 		if (null!=request.getParameter("btnQuitSignIn")) {
 			response.sendRedirect("/Blog_jsp/jsp/Index.jsp?isQuitSignIn=true");
 		}else {
@@ -43,7 +43,7 @@ public class SignInCheckServlet extends HttpServlet {
 			boolean signInFlag=false;
 			boolean hasSignInName=false;
 			User user=null;
-			HttpSession session=request.getSession();
+			
 			if(null!=request.getParameter("fromPage")){
 	        	fromPageSignUp=(("signUp".equals(request.getParameter("fromPage").toString())))?true:false;
 	        }

@@ -2,6 +2,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="java.util.Locale" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--
   Created by IntelliJ IDEA.
   User: hblvs
@@ -49,6 +50,7 @@
 	            <li><a href="/Blog_jsp/TestServlet">访问TestServlet</a></li>
 	            <li><a href="/Blog_jsp/TestJDBCServlet">访问TestJDBC</a></li>
 	            <li><a href="/Blog_jsp/jsp/TestEL.jsp?name=TestEL">访问TestEL</a></li>
+	            <li><a href="/Blog_jsp/jsp/TestJSTL.jsp">访问TestJSTL</a></li>
 	        </ul>
 	        <P id="myTime">2017-11-09</P>
 	    </nav>
@@ -99,6 +101,7 @@
 	        </section>
 	    </div>
 	    <div id="myAside">
+	        
 	    <%
 	        Cookie[] cookies=request.getCookies();
 	        String cookieUser="";
@@ -111,51 +114,40 @@
 	                };
 	            };
 	        }
-	        boolean isQuitSignIn=false;
-	        if("true".equals(request.getParameter("isQuitSignIn"))){
-	        	isQuitSignIn=true;
-	        }
-	        String fromPage="";
-	        boolean fromPageSignInCheckServlet=false;
-	        boolean isSignInFinish=false;
-	        boolean signInFlag=false;
-	        boolean hasSignInName=false;
-	        if(null!=request.getParameter("fromPage")){
-	        	fromPageSignInCheckServlet=("SignInCheckServlet".equals(request.getParameter("fromPage").toString()))?true:false;
-	        }
-	        if(null!=session.getAttribute("isSignInFinish")){
-	        	isSignInFinish=(Boolean)session.getAttribute("isSignInFinish");
-	        }
-	        if(null!=session.getAttribute("signInFlag")){
-	        	signInFlag=(Boolean)session.getAttribute("signInFlag");
-	        }
-	        if(null!=session.getAttribute("hasSignInName")){
-	        	hasSignInName=(Boolean)session.getAttribute("hasSignInName");
-	        }
-	        if(fromPageSignInCheckServlet && isSignInFinish && !signInFlag && hasSignInName){
-       	%>
-	        	<script type="text/javascript">alert("密码错误，请重新登陆")</script>
-	   	<%
-	        }else if(fromPageSignInCheckServlet && isSignInFinish && !signInFlag && !hasSignInName){
-       	%>
-	        	<script type="text/javascript">alert("用户不存在，请注册新用户 ")</script>
-	   	<%
-	        }else if(fromPageSignInCheckServlet && !isSignInFinish){
-       	%>
-	        	<script type="text/javascript">alert("登陆信息填写不完整，请填写完整! ")</script>
-	   	<%
-	        }
-	        if (fromPageSignInCheckServlet && signInFlag){
-	  	%>
-				<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
+		%>
+		<c:set var="trueTag" value="true" />
+		<c:set var="falseTag" value="fasle" />
+		<c:set var="paramIsQuitSignIn" value="falseTag" />
+		<c:set var="paramFromPageSignInCheckServlet" value="falseTag"/>
+		<c:set var="paramIsSignInFinish" value="falseTag"/>
+		<c:set var="paramSignInFlag" value="falseTag"/>
+		<c:set var="paramHasSignInName" value="falseTag"/>
+		<c:if test="${trueTag eq param.isQuitSignIn}"><c:set var="paramIsQuitSignIn" value="trueTag" /></c:if>
+		<c:if test="${'SignInCheckServlet' eq param.fromPage}"><c:set var="paramFromPageSignInCheckServlet" value="trueTag" /></c:if>
+		<c:if test="${trueTag eq sessionScope.isSignInFinish}"><c:set var="paramIsSignInFinish" value="trueTag" /></c:if>
+		<c:if test="${trueTag eq sessionScope.signInFlag}"><c:set var="paramSignInFlag" value="trueTag" /></c:if>
+	    <c:if test="${trueTag eq sessionScope.hasSignInName}"><c:set var="paramHasSignInName" value="trueTag" /></c:if>
+	    <c:choose>
+		    <c:when test="${('trueTag' eq paramFromPageSignInCheckServlet)  && ('trueTag' eq paramIsSignInFinish)
+		     && ('falseTag' eq paramSignInFlag) && ('trueTag' eq paramHasSignInName)}">
+		    	<script type="text/javascript">alert("密码错误，请重新登陆")</script>
+		    </c:when>
+		    <c:when test="${('trueTag' eq paramFromPageSignInCheckServlet)  && ('trueTag' eq paramIsSignInFinish)
+		     && ('falseTag' eq paramSignInFlag) && ('falseTag' eq paramHasSignInName)}">
+		    	<script type="text/javascript">alert("用户不存在，请注册新用户 ")</script>
+		    </c:when>
+		    <c:when test="${('trueTag' eq paramFromPageSignInCheckServlet)  && ('falseTag' eq paramIsSignInFinish)}">
+		    	<script type="text/javascript">alert("登陆信息填写不完整，请填写完整! ")</script>
+		    </c:when>
+		    <c:when test="${('trueTag' eq paramFromPageSignInCheckServlet)  && ('trueTag' eq paramIsSignInFinish)}">
+		    	<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
 			       <P>欢迎<b>${sessionScope.username}</b>再次光临</P>
 			       <P>您的注册时间是：${sessionScope.signUpTime}</P>
 			       <input type="submit" name="btnQuitSignIn" class="btn_grey" value="退出登陆">&nbsp;&nbsp;
-			  	</form> 
- 		<%
-      		}else{
-   		%>
-   				<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
+			  	</form>
+		    </c:when>
+		  	<c:otherwise>
+		  		<form id="form1" name="form1" method="post" action="<%= request.getContextPath()%>/SignInCheckServlet" target="_self">	
 		           <table id="myTable">
 		               <tr>
 		                   <td  colspan="2"  bgcolor="#eeeeee">·用户登录</td>
@@ -196,10 +188,9 @@
 		                   </td>
 		               </tr>
 		           </table>
-   				</form>	    
-      	<%
-          	}
-	  	%>
+   				</form>
+		  	</c:otherwise>
+		  </c:choose> 
 		        <div id="myImage"><img src="/Blog_jsp/img/zjl.jpg"></div>
 		        <div id="myAudio">
 		            <audio id="music"  controls="controls" onmousemove="this.play()" onmouseout="this.pause()" preload="auto">
