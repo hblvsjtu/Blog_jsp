@@ -4,13 +4,15 @@
 	display: box;
 	display: -moz-box;
 	display: -webkit-box;
-	margin-left:16em;
-	padding:0.5em;
 	align:center;
 	-moz-box-align:center;
 	-webkit-box-align:center;
+	padding:0.5em;
+	
 }
+
 		#bookInfor{
+			margin-left:16em;
 			width:20em;
 			margin:1em;
 		}
@@ -31,12 +33,18 @@
 						#checkTable{  
 							width:100%       
 						}
-		#libraryOther{	
+		#libraryUpload{	
+			position:relative;
+			width:10em;	
+		}
+		
+		#libraryCheckloginName{
+			position:relative;	
 			box-flex:1;
 			-moz-box-flex:1;
 			-webkit-box-flex:1;		
 		}
-#bookInfor,#checkEmailAndPhone,#libraryOther{
+#bookInfor,#checkEmailAndPhone,#libraryUpload,#libraryCheckloginName{
 	box-sizing: border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;

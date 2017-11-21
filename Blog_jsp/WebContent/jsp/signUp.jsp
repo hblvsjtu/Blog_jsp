@@ -1,8 +1,9 @@
 <%@page import="com.lvhongbin.bean.User"%>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.net.URLEncoder" %>
-<%@page import="javafx.scene.control.Alert"%>
+<%@ page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML">
 <html>
 	<head>
@@ -10,7 +11,8 @@
 		<title>用户注册</title>
 		<link href="css/signUp.css" type="text/css">
 		<link rel="stylesheet" type="text/css" href="/Blog_jsp/css/signUp.css">
-		<script type="text/javascript"  src="/Blog_jsp/js/signUp.js" charset="UTF-8"></script>
+		<script type="text/javascript"  src="/Blog_jsp/js/signUp.js"></script>
+		<script type="text/javascript"  src="/Blog_jsp/js/Ajax.js"></script>
 		<style type="text/css">
 			body{
 				margin: 0px;font-size: 12px;
@@ -27,75 +29,46 @@
 				text-align:left;
 			}
 		</style>
-		<%
-		System.out.println("======== 跳转到signUp页面 ========");
-		boolean fromPageSignUpCheckServlet=false;
-		boolean isExisted=false;
-        boolean signUpFlag=false;
-        boolean isSignUpFinish=false;
-        User user =null;
-        if(null!=request.getParameter("fromPage")){
-        	fromPageSignUpCheckServlet=("SignUpCheckServlet".equals(request.getParameter("fromPage").toString()))?true:false;
-        }
-        if(null!=session.getAttribute("isSignUpFinish")){
-        	isSignUpFinish=(Boolean)session.getAttribute("isSignUpFinish");
-        }
-        if(null!=session.getAttribute("isExisted")){
-        	isExisted=(Boolean)session.getAttribute("isExisted");
-        }
-        if(null!=session.getAttribute("signUpFlag")){
-        	signUpFlag=(Boolean)session.getAttribute("signUpFlag");
-        }
-        if(null!=session.getAttribute("user")){
-        	user=(User)session.getAttribute("user");
-        }
-        if(fromPageSignUpCheckServlet){
-        	if(isSignUpFinish){
-        		if(isExisted){
-		%>	 
-					<script type="text/javascript" charset="UTF-8">
-						 alert("用户名已存在，请重新填写用户名，或者选择直接登陆");
-					</script> 
-		<%
- 		    		System.out.println("======== 注册失败,用户账号已存在 ========");
- 				}else if(signUpFlag){
-        %>
-					 <script type="text/javascript" charset="UTF-8">
+		<c:set var="trueTag" value="true"></c:set>
+		<c:set var="falseTag" value="false"></c:set>
+		<c:set var="fromPageSignUpCheckServlet" value="falseTag"/>
+		<c:set var="isExisted" value="falseTag"/>
+		<c:set var="signUpFlag" value="falseTag"/>
+		<c:set var="isSignUpFinish" value="falseTag"/>
+		<c:if test="${'SignUpCheckServlet' eq param.fromPage}"><c:set var="fromPageSignUpCheckServlet" value="trueTag"/></c:if>
+		<c:if test="${trueTag eq sessionScope.isExisted}"><c:set var="isExisted" value="trueTag"/></c:if>
+		<c:if test="${trueTag eq sessionScope.signUpFlag}"><c:set var="signUpFlag" value="trueTag"/></c:if>
+		<c:if test="${trueTag eq sessionScope.isSignUpFinish}"><c:set var="isSignUpFinish" value="trueTag"/></c:if>
+		<c:choose>
+			<c:when test="${('falseTag'eq isFromFunctionCheckExistedUser) && ('trueTag' eq fromPageSignUpCheckServlet) && ('falseTag' eq isSignUpFinish)}">
+				<script type="text/javascript" charset="UTF-8">alert("注册信息填写不完整,请重新填写");</script> 
+			</c:when>
+			<c:when test="${('falseTag'eq isFromFunctionCheckExistedUser) && ('trueTag' eq fromPageSignUpCheckServlet) && ('trueTag' eq isSignUpFinish) && ('trueTag' eq isExisted) && ('falseTag' eq signUpFlag)}">
+				<script type="text/javascript" charset="UTF-8">alert("该用户已存在，请重新注册或直接登陆！");</script>
+			</c:when>
+			<c:when test="${('falseTag'eq isFromFunctionCheckExistedUser) && ('trueTag' eq fromPageSignUpCheckServlet) && ('trueTag' eq isSignUpFinish) && ('falseTag' eq isExisted) && ('trueTag' eq signUpFlag)}">
+				<script type="text/javascript" charset="UTF-8">
 						 function alertmessage(){
-							 var username=window.document.getElementById("username");
+							 var username=window.document.getElementById("username").value;
 							 alert("恭喜 "+username+" ,注册成功,3秒后跳转原页面");
 						 }
-						 setTimeout("alertmessage()", 3000); 
-					 </script>
-		<%
-   						System.out.println("======== 注册成功，准备离开到signUp页面 ========");
-   			       		response.sendRedirect("/Blog_jsp/SignInCheckServlet?fromPage=signUp");
-   				}else{
-        %>
-   						 <script type="text/javascript" charset="UTF-8">
-   						 	alert("数据库写入失败,请检查拼写");
-   						 </script>
-        <%
-        		}
-        	}else{
-        %>
-					 <script type="text/javascript" charset="UTF-8">
-					 	alert("注册信息填写不完整,请重新填写");
-					 </script>
-		<%
-        	}	
-        }
-		%>
-
+						 setTimeout("alertmessage()", 3000);
+						 window.location.href="/Blog_jsp/SignInCheckServlet?fromPage=signUp";
+				</script>
+			</c:when>
+			<c:otherwise></c:otherwise>
+		</c:choose>
 	</head>
 	<body>
+	isExistedcheckExistedUser: ${param.isExistedcheckExistedUser}
+	fromFunction: ${param.fromFunction}
 		<div align="center">
 			<div class="div1">
-				<form action="/Blog_jsp/SignUpCheckServlet" method="post" onsubmit="return reg(this);">
+				<form name="formSignUp" id="formSignUp" action="/Blog_jsp/SignUpCheckServlet" method="post" onsubmit="return reg(this);">
 					<table align="center" border="0" width="500">
 						<tr>
 							<td align="right" width="30%" size ="9pt">用户名：</td>
-							<td><input  id="username" name="username" type="text"  class="box"></td>
+							<td><input  id="username" name="username" type="text"  class="box" onchange="checkExistedUser()"></td>
 						</tr>
 						<tr>
 							<td align="right">密 码：</td>
@@ -131,6 +104,9 @@
 							</td>
 						</tr>
 					</table>
+					<div>
+						<textarea rows="10" cols="100" id="textarea"></textarea>
+					</div>
 				</form>
 			</div>
 		</div>

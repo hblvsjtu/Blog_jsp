@@ -12,9 +12,9 @@ div img:hover{
 	-o-transform:translate(-1em,-1em);
 }
 section[id^="theam_"] header:hover{
-	-webkit-transform:scale(1.2);
-	-moz-transform:scale(1.2);
-	-o-transform:scale(1.2);
+	-webkit-transform:scale(1.02);
+	-moz-transform:scale(1.02);
+	-o-transform:scale(1.02);
 }
 
 
