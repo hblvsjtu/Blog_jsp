@@ -21,12 +21,16 @@
 				border: 1px solid #D1DEB2; width: 150px; height: 20px;
 			}
 			.div1{
-				background-image: url(images/bg.jpg);
+				background-image: url(/Blog_jsp/img/bg.jpg);
 				height: 600px;
 				width: 803px;
 				padding-left:20px;
 				padding-top:220px;
 				text-align:left;
+			}
+			table{
+				border:0em;
+				width:36em;
 			}
 		</style>
 		<c:set var="trueTag" value="true"></c:set>
@@ -60,15 +64,14 @@
 		</c:choose>
 	</head>
 	<body>
-	isExistedcheckExistedUser: ${param.isExistedcheckExistedUser}
-	fromFunction: ${param.fromFunction}
 		<div align="center">
 			<div class="div1">
 				<form name="formSignUp" id="formSignUp" action="/Blog_jsp/SignUpCheckServlet" method="post" onsubmit="return reg(this);">
-					<table align="center" border="0" width="500">
+					<table>
 						<tr>
 							<td align="right" width="30%" size ="9pt">用户名：</td>
 							<td><input  id="username" name="username" type="text"  class="box" onchange="checkExistedUser()"></td>
+							<td id="textCheckExistedUser" size ="9pt"></td>
 						</tr>
 						<tr>
 							<td align="right">密 码：</td>
@@ -104,9 +107,6 @@
 							</td>
 						</tr>
 					</table>
-					<div>
-						<textarea rows="10" cols="100" id="textarea"></textarea>
-					</div>
 				</form>
 			</div>
 		</div>
