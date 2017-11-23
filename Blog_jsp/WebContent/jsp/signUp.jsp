@@ -71,7 +71,7 @@
 						<tr>
 							<td align="right" width="30%" size ="9pt">用户名：</td>
 							<td><input  id="username" name="username" type="text"  class="box" onchange="checkExistedUser()"></td>
-							<td id="textCheckExistedUser" size ="9pt"></td>
+							<td id="textCheckExistedUser" size ="9pt" width="10em"></td>
 						</tr>
 						<tr>
 							<td align="right">密 码：</td>
