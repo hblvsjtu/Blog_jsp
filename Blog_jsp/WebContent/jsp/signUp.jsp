@@ -1,4 +1,4 @@
-<%@page import="com.lvhongbin.bean.User"%>
+<%@ page import="com.lvhongbin.bean.User"%>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="javafx.scene.control.Alert"%>
@@ -18,10 +18,10 @@
 				margin: 0px;font-size: 12px;
 			}
 			.box{
-				border: 1px solid #D1DEB2; width: 150px; height: 20px;
+				border: 1px solid #D1DEB2; width: 15em; height: 20px;
 			}
 			.div1{
-				background-image: url(/Blog_jsp/img/bg.jpg);
+				background-image: url(/Blog_jsp/img/signUp.jpg);
 				height: 600px;
 				width: 803px;
 				padding-left:20px;
@@ -30,7 +30,7 @@
 			}
 			table{
 				border:0em;
-				width:36em;
+				width:40em;
 			}
 		</style>
 		<c:set var="trueTag" value="true"></c:set>
@@ -64,14 +64,16 @@
 		</c:choose>
 	</head>
 	<body>
+	fromPageSignUpCheckServlet: <c:out value="fromPageSignUpCheckServlet"></c:out>
+	isSignUpFinish: <c:out value="isSignUpFinish"></c:out>
 		<div align="center">
 			<div class="div1">
 				<form name="formSignUp" id="formSignUp" action="/Blog_jsp/SignUpCheckServlet" method="post" onsubmit="return reg(this);">
 					<table>
 						<tr>
-							<td align="right" width="30%" size ="9pt">用户名：</td>
+							<td align="right" width="30%" >用户名：</td>
 							<td><input  id="username" name="username" type="text"  class="box" onchange="checkExistedUser()"></td>
-							<td id="textCheckExistedUser" size ="9pt" width="10em"></td>
+							<td id="textCheckExistedUser" width="30%"  class="box" style="border: none;"></td>
 						</tr>
 						<tr>
 							<td align="right">密 码：</td>
@@ -101,7 +103,7 @@
 							<td><input type="text" name="email" class="box"></td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center" height="40">
+							<td colspan="3" align="center" height="40">
 								<input type="submit" value="注 册">
 								<input type="reset" value="重 置">
 							</td>

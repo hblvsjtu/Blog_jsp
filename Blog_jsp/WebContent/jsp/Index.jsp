@@ -51,6 +51,7 @@
 		            <li><a href="/Blog_jsp/TestJDBCServlet">访问TestJDBC</a></li>
 		            <li><a href="/Blog_jsp/jsp/TestEL.jsp?name=TestEL">访问TestEL</a></li>
 		            <li><a href="/Blog_jsp/jsp/TestJSTL.jsp">访问TestJSTL</a></li>
+		            <li><a href="/Blog_jsp/jsp/TestStruts2.jsp">访问TestStruts2</a></li>
 		        </ul>
 		        <P id="myTime">2017-11-09</P>
 		</nav>
