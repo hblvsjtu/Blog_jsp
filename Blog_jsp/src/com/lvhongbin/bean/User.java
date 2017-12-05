@@ -9,6 +9,7 @@ public class User {
 	private Long id=(long) 10000;
 	private String date="date";
 	
+
 	/**
 	 * @return the id
 	 */
@@ -82,5 +83,10 @@ public class User {
 	 */
 	public void setDate(String date) {
 		this.date = date;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", password=" + password + ", sex=" + sex + "]";
 	}
 }
