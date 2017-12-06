@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/Blog_jsp/css/tutorial/tutorial.css">
+	<script type="text/javascript" src="/Blog_jsp/js/treatment.js" ></script>
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<header>Java Web数据库操作</header>
+		<div id="container">
+			<div id="jump">
+				<a href="#article1" >article1</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#article2">article2</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#article3">article3</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#article4">article4</a>
+			</div>
+			<div id="nav">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;技术分类</p>
+		        <ul>
+		            <li><a href="#article1">背景介绍</a></li>
+		            <li><a href="#article2">使用方法</a></li>
+		            <li><a href="#article3">article3</a></li>
+		            <li><a href="#article4">article4</a></li>
+		        </ul>
+		   	</div>
+			<div id="articleContainer">
+				<div id="article1">
+					<div id="articleInfo1"><h4>2017-12-06</h4><h3>冰红茶</h3></div>
+					<div id="articleContent1">
+						<article>
+							<h3>&nbsp;&nbsp;&nbsp;&nbsp;背景介绍 </h3>
+							<section>&nbsp;&nbsp;内容</section>
+						</article>
+					</div>
+				</div>
+				<div id="article2">
+					<div id="articleInfo1"><h4>2017-12-06</h4><h3>冰红茶</h3></div>
+					<div id="articleContent2">
+						<article>
+							<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用方法 </h3>
+							<section><P>&nbsp;&nbsp;&nbsp;&nbsp;//(1)加载驱动；<br>
+								  	 &nbsp;&nbsp;Class.forName("com.mysql.jdbc.Driver");</P>
+									 <P>&nbsp;&nbsp;&nbsp;&nbsp;//(2)创建连接；<br>
+									 &nbsp;&nbsp;Connection conn=DriverManager.getConnection(url,userame,passward);</P>
+									 <P>&nbsp;&nbsp;&nbsp;&nbsp;//(3)对sql进行预编译；</P>
+									 <P>&nbsp;&nbsp;String sql="selset * from user";<br>
+									 &nbsp;&nbsp;PreparedStatment psmt=conn.prepareStatement(sql);</P>
+									 <P>&nbsp;&nbsp;&nbsp;&nbsp;//(4)执行sql查询；<br>
+									 &nbsp;&nbsp;ResultSet rs=psmt.excuteQuery();</P>
+									 <P>&nbsp;&nbsp;&nbsp;&nbsp;//(5)遍历结果集；<br>
+									 &nbsp;&nbsp;。。。。。。</P>
+									 <P>&nbsp;&nbsp;&nbsp;&nbsp;//(6)释放资源；<br>
+									 &nbsp;&nbsp;conn.close();			</P>			
+					</section>
+						</article>
+					</div>
+				</div>
+				<div id="article3">
+					<div id="articleInfo1"><h4>2017-12-06</h4><h3>冰红茶</h3></div>
+					<div id="articleContent3">
+						<article>
+							<h3>&nbsp;&nbsp;&nbsp;&nbsp;标题 </h3>
+							<section>&nbsp;&nbsp;内容</section>
+						</article>
+					</div>
+				</div>
+				<div id="article4">
+					<div id="articleInfo1"><h4>2017-12-06</h4><h3>冰红茶</h3></div>
+					<div id="articleContent4">
+						<article>
+							<h3>&nbsp;&nbsp;&nbsp;&nbsp;标题 </h3>
+							<section>&nbsp;&nbsp;内容</section>
+						</article>
+					</div>
+				</div>
+			</div>
+			<div id="comment">
+				<div id="commentAreaContainer">
+			            <div id="commentFormDiv">
+			                <form id="commentForm">
+			                    <table id="commentTable">
+			                        <tr>
+			                            <td id="commenter"  style="width: 10em">评论人</td>
+			                            <td id="comment1" >评论内容</td>
+			                        </tr>
+			                    </table>
+			                </form>
+			            </div>
+			            <div id="commentInfoFormDiv">
+			                <form id="commenterInfoForm" method="get" action="">
+			                    <table id="commenterInfoTable">
+			                        <tr>
+			                            <td style="width: 5em">评论人：&nbsp;&nbsp;</td>
+			                            <td><input id="commenterName" type="text"></td>
+			                        </tr>
+			                        <tr>
+			                            <td>评论内容：</td>
+			                            <td ><textarea id="commenterText" rows="6"></textarea></td>
+			                        </tr>
+			                    </table>
+			                </form>
+			            </div>
+			            <div id="commentButtonDiv">
+			                <input type="button" id="commentPublic" value="发表" onclick="addComment()">
+			                <input type="button" id="commentReset" value="重置" onclick="clearComment()">
+			                <input type="button" id="commentDeleteFirst" value="删除第一条评论" onclick="deleteFirstComment()">
+			                <input type="button" id="commentDeleteLast" value="删除最后一条评论" onclick="deleteLastComment()">
+			            </div>
+			        </div>
+			</div>
+		</div>
+		<footer>
+		    <P>Copyright@冰先生</P>
+		    <a href="http://www.sjtu.edu.cn/" style="color:black;">上海交通大学<br></a>
+		    <time pubdate datetime="2017-10-26 10:57" style="color:black;"></time>
+		</footer>
+	</body>
+</html>

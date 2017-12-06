@@ -98,6 +98,8 @@
 			                <li>SQL Sever</li>
 			                <li>MySQL</li>
 			                <li>MongoDB</li>
+			                <li><a href="/Blog_jsp/html/hibernate.html">Hibernate</a></li>
+			                <li><a href="/Blog_jsp/html/jdbc.html">Java Web数据库操作</a></li>
 			            </ul>
 			        </section>
 			    </div>
@@ -344,7 +346,7 @@
 		    <a href="http://www.sjtu.edu.cn/" style="color:white;">上海交通大学<br></a>
 		    <jsp:useBean id="showTime" class="com.lvhongbin.bean.ShowTime"></jsp:useBean>
 		    <time pubdate datetime="2017-10-26 10:57"><jsp:getProperty property="realTime" name="showTime"/></time>
-		    </footer>
+		</footer>
 		</div>
 	</body>
 </html>

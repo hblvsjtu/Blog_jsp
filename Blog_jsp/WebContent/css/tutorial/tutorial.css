@@ -1,0 +1,240 @@
+@charset "UTF-8";
+
+body{
+	margin: 0em;
+	padding: 0em;
+}
+
+header{
+	width:100%;
+	background-color: rgb(68,114,196);
+	color: white;
+	font: bolder;
+	font-size:4.5em;
+	text-align: center;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+Table{
+	border-collapse:collapse;
+	font-size: 1.5em;
+	font: bold;
+	color: black;
+}
+
+#container{
+	width: 90%;
+	margin: 0em auto;
+}
+
+	#jump{
+		width: 95%;
+		background-color: rgb(225,192,0);
+		color: white;
+		height: 3em;
+		text-align: center;
+		font-size: 1em;
+		padding-top: 1em;
+	}
+
+	#nav{
+		width: 15%;
+		position:fixed;
+		margin-top:1em;
+		background-color: rgb(68,114,196);
+		color: white;
+	}
+	#nav ul li{
+	line-height: 1.5em;
+	}	
+	#articleContainer{
+		margin-left:18%;
+		margin-right:6%;
+		
+	}
+		#articleContainer div[id*="article"]{
+			margin-top: 1em;
+			width:100%;
+		}
+			
+		#articleContainer div[id*="articleInfo"]{
+			width:20%;
+			background-color: rgb(225,192,0);
+			color: white;
+			text-align: center;
+			padding-top: 0.8em;
+			font-size:1em;
+		}
+		
+		#articleContainer div[id*="articleContent"]{
+			color: rgb(68,114,196);
+			font-size:1em;
+			margin-left: 1em;
+			word-wrap:break-word;  
+		    word-break:break-all;  
+		    overflow: hidden;  
+		}
+		
+		#articleContainer article header{
+			background-color: white;
+			color: rgb(68,114,196);
+		}
+		
+		#articleContainer article section{
+			background-color: rgb(68,114,196);
+			color: white;
+		}
+		
+		
+		#article1{
+			display: box;
+			display: -moz-box;
+			display: -webkit-box;	
+		}
+		#articleContent1{
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+		#articleInfo1,#articleContent1{
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+		#article2{
+			display: box;
+			display: -moz-box;
+			display: -webkit-box;	
+		}
+		#articleContent2{
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+		#articleInfo2,#articleContent2{
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+		#article3{
+			display: box;
+			display: -moz-box;
+			display: -webkit-box;	
+		}
+		#articleContent3{
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+		#articleInfo3,#articleContent3{
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+		#article4{
+			display: box;
+			display: -moz-box;
+			display: -webkit-box;	
+		}
+		#articleContent4{
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+		}
+		#articleInfo4,#articleContent4{
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+		
+	  	#comment{
+	  		width: 95%;
+	  		background-color: rgb(225,192,0);
+			margin-top: 5em;
+	  	}
+			#commentAreaContainer {
+				box-ordinal-group: 2;
+				-webkit-box-ordinal-group: 2;
+				-moz-box-ordinal-group: 2;
+				box-flex: 1;
+				-webkit-box-flex: 1;
+				-moz-box-flex: 1;
+			}
+
+				#commentFormDiv{
+					box-ordinal-group: 1;
+					-webkit-box-ordinal-group: 1;
+					-moz-box-ordinal-group: 1;
+					box-flex: 1;
+					-webkit-box-flex: 1;
+					-moz-box-flex: 1;
+					text-align: center;
+					width: 90%;
+					margin: 0.1em auto;
+				}
+					#commentForm {
+						width: 100%;
+					}
+						#commentTable {
+							width: 100%;
+							border: 1px solid #eeeeee;
+						}
+							#commentTable td{
+								border: 1px solid #eeeeee;
+								line-height: 1em;
+							}
+				#commentInfoFormDiv{
+					box-ordinal-group: 2;
+					-webkit-box-ordinal-group: 2;
+					-moz-box-ordinal-group: 2;
+					height: 10em;
+					text-align: center;
+					width: 90%;
+					margin: 0.1em auto;
+					margin-top: 1em;
+				}
+					#commenterInfoForm {
+						width: 100%;
+					}
+						#commenterInfoTable{
+							width: 100%;
+							border: none;
+						}
+						#commenterInfoTable td{
+							border: none;
+						}
+						#commenterInfoTable input,textarea{
+							width: 80%;
+						}
+						#commenterInfo input{
+							line-height:0.8em ;
+						}
+						#commenterInfo textarea{
+							line-height:0.8em ;
+						}
+				#commentButtonDiv{
+					box-ordinal-group: 3;
+					-webkit-box-ordinal-group: 3;
+					-moz-box-ordinal-group: 3;
+					text-align: center;
+				}
+			#commentFormDiv,#commentInfoFormDiv,commentButtonDiv{
+				box-sizing: border-box;
+				-moz-box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+			}
+	  	
+	  	footer {
+		    background-color:white;
+		    color:black;
+		    clear:both;
+		    text-align:center;
+		    padding:5px;
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
