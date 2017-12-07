@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 /**
  * Servlet implementation class MyTitleServlet
  */
@@ -37,6 +38,7 @@ public class MyTitleServlet extends HttpServlet {
 		System.out.println("=========== MyTitleServlet ===========");
 		System.out.println("执行了MyTitleServlet中的init方法");
 		System.out.println("myTitle："+myTitle);
+		
 	}
 
 	/**
