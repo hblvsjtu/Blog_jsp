@@ -112,8 +112,6 @@ span.a0
 	{mso-style-name:"Ò³½Å ×Ö·û";
 	mso-style-link:Ò³½Å;
 	font-family:"Times New Roman",serif;}
-.MsoChpDefault
-	{font-family:µÈÏß;}
  /* Page Definitions */
  @page WordSection1
 	{size:595.3pt 841.9pt;
@@ -484,7 +482,7 @@ cfg=new Configuration();</span></p>
 
 <p class=MsoNormal style='margin-left:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cfg.configure();</span></p>
 
-<p class=MsoNormal style='margin-left:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SessionFactory
+<p class=MsoNormal style='margin-left:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SessionFactory
 sessionFactory=cfg.buildSessionFactory();</span></p>
 
 <p class=MsoNormal style='margin-left:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Session
@@ -737,10 +735,11 @@ style='font-family:ËÎÌå'>Öµ¡£</span></p>
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
 style='font-family:ËÎÌå'>Ö÷¼üÉú³É²ßÂÔ</span></h3>
 
-<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
-lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>increment&nbsp; </span><span style='font-family:
-ËÎÌå'>Ã¿´ÎÔö¼ÓÔöÁ¿Îª</span><span lang=EN-US>1</span><span style='font-family:ËÎÌå'>£»</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><a
+name="OLE_LINK3"><span lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>increment&nbsp; </span></a><span
+style='font-family:ËÎÌå'>Ã¿´ÎÔö¼ÓÔöÁ¿Îª</span><span lang=EN-US>1</span><span
+style='font-family:ËÎÌå'>£»</span></p>
 
 <p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
 lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -764,7 +763,9 @@ style='font-family:ËÎÌå'>ÈıÖÖÉú³ÉÆ÷ÖĞµÄÒ»ÖÖ£¬ÊÊºÏ¿çÊı¾İ¿âÆ½Ì¨µÄ¿ª·¢£¬ÊÊÓÃÓÚ´úÀíÖ
 
 <p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
 lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>uuid</span></p>
+</span></span><span lang=EN-US>uuid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:ËÎÌå'>Êµ<a name="OLE_LINK5"></a><a name="OLE_LINK4">ÌåÀà</a></span><span
+lang=EN-US>id</span><span style='font-family:ËÎÌå'>ÊôĞÔÀàĞÍ±ØĞëÎª×Ö·û´®ÀàĞÍ</span> </p>
 
 <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
@@ -772,18 +773,310 @@ lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
 style='font-family:ËÎÌå'>ÊµÌåÀà²Ù×÷</span></h3>
 
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>save()</span><span style='font-family:ËÎÌå'>²Ù×÷£»</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =new User();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.copy(user);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>¸ú¾İ</span><span lang=EN-US>id</span><span
+style='font-family:ËÎÌå'>²éÑ¯</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Session</span><span style='font-family:
+ËÎÌå'>¶ÔÏóÌá¹©ÁËÁ½ÖÖ¶ÔÏó×°ÔØµÄ·½·¨£¬·Ö±ğÊÇ</span><span lang=EN-US>get()</span><span
+style='font-family:ËÎÌå'>ºÍ</span><span lang=EN-US>load()</span><span
+style='font-family:ËÎÌå'>¡£µ±¿ª·¢ÈËÔ±²»È·¶¨Êı¾İ¿âÊÇ·ñÓĞÆ¥ÅäµÄ¼ÇÂ¼´æÔÚÊ±£¬¿ÉÒÔÊ¹ÓÃ</span><span lang=EN-US>get()</span><span
+style='font-family:ËÎÌå'>·½·¨£¬Èç¹ûÃ»ÓĞÆ¥ÅäµÄ¼ÇÂ¼´æÔÚ£¬·µ»Ø</span><span lang=EN-US>null</span><span
+style='font-family:ËÎÌå'>¡£</span><span lang=EN-US>get()</span><span
+style='font-family:ËÎÌå'>·½·¨ÖĞº¬ÓĞÁ½¸ö²ÎÊı£¬µÚÒ»¸öÊÇ³Ö¾Ã»¯¶ÔÏó£¬ÁíÒ»¸öÊÇ³Ö¾Ã»¯¶ÔÏóµÄÎ¨Ò»±êÊ¶Öµ¡£Æä´úÂëÈçÏÂ</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =session.get(User.class, 1);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>System.out.println(user);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>load()</span><span style='font-family:ËÎÌå'>·½·¨·µ»Ø¶ÔÏóµÄ´úÀí£¬Ö»ÓĞÔÚ·µ»Ø¶ÔÏó±»µ÷ÓÃµÄÊ±ºò£¬</span><span
+lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>²Å»á·¢³ö</span><span
+lang=EN-US>SQL</span><span style='font-family:ËÎÌå'>Óï¾äÈ¥²éÑ¯¶ÔÏó¡£Õâ½Ğ</span><span
+lang=EN-US>hibernate</span><span style='font-family:ËÎÌå'>µÄÑÓ³Ù¼ÓÔØ²ßÂÔ£¬¼´Ê¹ÓÃ</span><span
+lang=EN-US>load()</span><span style='font-family:ËÎÌå'>¼ÓÔØ³Ö¾Ã»¯¶ÔÏóÊ±£¬Ëü·µ»ØµÄÊÇÒ»¸öÎ´³õÊ¼»¯µÄ´úÀí£¨´úÀíÎŞĞë´ÓÊı¾İ¿âÖĞ×¥È¡Êı¾İ¶ÔÏóµÄÊı¾İ£©Ö±µ½µ÷ÓÃ´úÀíµÄÄ³¸ö·½·¨Ê±£¬</span><span
+lang=EN-US>hibernate</span><span style='font-family:ËÎÌå'>²Å»á·ÃÎÊÊı¾İ¿â¡£µ±×°ÔØµÄ¶ÔÏó³¤Ê±¼äÃ»ÓĞµ÷ÓÃÊ±£¬¾Í»á±»À¬»ø»ØÊÕÆ÷»ØÊÕ£¬ÔÚ³ÌĞòÖĞºÏÀíÊ¹ÓÃÑÓ³Ù¼ÓÔØ²ßÂÔ£¬¿ÉÒÔÓÅ»¯ÏµÍ³µÄĞÔÄÜ£¬½ÚÊ¡ÄÚ´æ¿Õ¼ä£¬¼õÉÙ²»±ØÒªµÄ¿ªÖ§¡£</span></p>
+
+<p class=MsoNormal><span lang=EN-US>// sql</span><span style='font-family:ËÎÌå'>Óï¾ä</span><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; SELECT * FROM t_user t WHERE t.uid =1</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =session.load(User.class, 1);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>System.out.println(user);</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>»òÕßÔÚÓ³ÉäÎÄ¼şÖĞµÄ</span><span
+lang=EN-US>&lt;property&gt;</span><span style='font-family:ËÎÌå'>±êÇ©µÄ</span><span
+lang=EN-US>lazy</span><span style='font-family:ËÎÌå'>ÊôĞÔ¸ÄÎª¡°</span><span
+lang=EN-US>true</span><span style='font-family:ËÎÌå'>¡±</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&lt;property lazy=¡°true¡±&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>ĞŞ¸Ä</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>¸ú¾İ</span><span lang=EN-US>id</span><span
+style='font-family:ËÎÌå'>²éÑ¯£¬·µ»Ø¶ÔÏó</span></p>
+
+<p class=MsoNormal><span lang=EN-US>// UPDATE t-user SET username=?, address=?
+WHERE uid=?</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>µÚÒ»ÖÖ·½·¨</span><span lang=EN-US>(</span><span
+style='font-family:ËÎÌå'>½¨Òé</span><span lang=EN-US>)</span></p>
+
+<p class=MsoNormal><a name="_Hlk500708473"></a><a name="_Hlk500699558"><span
+lang=EN-US>User user =session.get(User.class, 1);</span></a></p>
+
+<p class=MsoNormal><span lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.update(user);</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>µÚ¶şÖÖ·½·¨</span><span lang=EN-US>(</span><span
+style='font-family:ËÎÌå'>²»½¨Òé</span><span lang=EN-US>,</span><span
+style='font-family:ËÎÌå'>ÒòÎªËû»áÓ°Ïìµ½±ğµÄ²ÎÊı£¬Èç¹û±ğµÄ²ÎÊı²»ĞŞ¸ÄµÄ»°»á±ä³É¿ÕÖµ</span><span lang=EN-US>)</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =new User();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.update (user);</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>µÚÈıÖÖ·½·¨</span><span lang=EN-US> </span><span
+style='font-family:ËÎÌå'>Ç¿ÖÆË¢ĞÂÌá½»¡£</span><span lang=EN-US>session</span><span
+style='font-family:ËÎÌå'>µÄË¢³ö£¨</span><span lang=EN-US>flush</span><span
+style='font-family:ËÎÌå'>£©¹ı³ÌÊÇÖ¸</span><span lang=EN-US>Session</span><span
+style='font-family:ËÎÌå'>Ö´ĞĞµÄÒ»Ğ©±ØĞëµÄ</span><span lang=EN-US>SQL</span><span
+style='font-family:ËÎÌå'>Óï¾äÀ´°ÑÄÚ´æÖĞµÄ¶ÔÏó×´Ì¬Í¬²½µ½</span><span lang=EN-US>JDBC</span><span
+style='font-family:ËÎÌå'>ÖĞ£¬Ë¢³ö»áÔÚÄ³Ğ©²éÑ¯Ö®Ç°Ö´ĞĞ£¬ÔÚÊÂÎïÌá½»Ê±Ö´ĞĞ£¬»òÕßÔÚ³ÌĞòÖĞÖ±½Óµ÷ÓÃ</span><span
+lang=EN-US>flush</span><span style='font-family:ËÎÌå'>£¨£©Ê±Ö´ĞĞ¡£</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =new User();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.flush();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>É¾³ı</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>Ö»ÓĞµ±¶ÔÏóÔÚ³Ö¾Ã»¯×´Ì¬Ê±²ÅÄÜÖ´ĞĞ£¬ËùÒÔÔÚÉ¾³ıÊı¾İÖ®Ç°£¬Ê×ÏÈ½«¶ÔÏóµÄ×´Ì¬×ª»¯Îª³Ö¾Ã»¯×´Ì¬¡£</span></p>
+
+<p class=MsoNormal><span lang=EN-US>//DELETE FROM t_user WHERE uid=?</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>µÚÒ»ÖÖ·½·¨</span><span lang=EN-US>(</span><span
+style='font-family:ËÎÌå'>½¨Òé</span><span lang=EN-US>)</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user =session.get(User.class, 1);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.delete(user);</span></p>
+
+<p class=MsoNormal><span style='font-family:ËÎÌå'>µÚ¶şÖÖ·½·¨</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User user = new User();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>User.setUid(3);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>session.delete(user);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>saveOrUpdate()</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:ËÎÌå'>µ±ÊµÌåÀà¶ÔÏóÎªË²Ê±Ì¬Ê±×÷</span><span lang=EN-US>save()</span><span
+style='font-family:ËÎÌå'>µÄ²Ù×÷£¬µ±ÊµÌåÀà¶ÔÏóÎªÍĞ¹ÜÌ¬»òÕß³Ö¾ÃÌ¬Ê±×÷</span><span lang=EN-US>update()</span><span
+style='font-family:ËÎÌå'>µÄ²Ù×÷£»</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.5<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:49.6pt;text-indent:-1.0cm;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>4.6<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
 <h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.7<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄÒ»¼¶»º´æ</span></h3>
+style='font-family:ËÎÌå'>ÊµÌåÀà¶ÔÏóµÄ×´Ì¬</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>Ë²Ê±Ì¬£º¶ÔÏóÀïÃæÃ»ÓĞ</span><span lang=EN-US>id</span><span
+style='font-family:ËÎÌå'>Öµ£¬¶ÔÏóÓë</span><span lang=EN-US>session</span><span
+style='font-family:ËÎÌå'>Ã»ÓĞ¹ØÁª¡£Ö»ÊÇÍ¨¹ı</span><span lang=EN-US>new</span><span
+style='font-family:ËÎÌå'>¹Ø¼ü×Ö¿ª±ÙÄÚ´æ¿Õ¼ä´´½¨</span><span lang=EN-US>Java</span><span
+style='font-family:ËÎÌå'>¶ÔÏó£¬»òÕßÍ¨¹ıÉ¾³ı²Ù×÷É¾³ıÊı¾İ¿â±íÄ³Ò»¶ÔÏóÊ±£¬Ã»ÓĞÄÉÈë</span><span lang=EN-US>session</span><span
+style='font-family:ËÎÌå'>µÄ¹ÜÀíÀïÃæ£¬Èç</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>User user =new
+User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:ËÎÌå'>»òÕß£º</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>User user
+=session.get(User.class, 1);</span></p>
+
+<p class=MsoNormal style='margin-left:24.0pt'><span lang=EN-US>session.delete(user);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>³Ö¾ÃÌ¬£ºÔÚ¶ÔÏóÀïÃæÓĞ</span><span lang=EN-US>id</span><span
+style='font-family:ËÎÌå'>Öµ£¬Ëü×ÜºÍ»á»°×´Ì¬£¨</span><span lang=EN-US>session</span><span
+style='font-family:ËÎÌå'>£©ºÍÊÂÎñ£¨</span><span lang=EN-US>transaction</span><span
+style='font-family:ËÎÌå'>£©¹ØÁªÔÚÒ»Æğ¡£µ±³Ö¾Ã»¯¶ÔÏó·¢Éú¸Ä¶¯Ê±²¢²»»áÁ¢¼´Ö´ĞĞÊı¾İ¿â²Ù×÷£¬Ö»ÓĞµ±ÊÂÎñ½áÊøÊ±£¬²Å»á¸üĞÂÊı¾İ¿â£¬ÒÔ±ã±£Ö¤</span><span
+lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄ³Ö¾Ã»¯¶ÔÏóºÍÊı¾İ¿â²Ù×÷µÄÍ¬²½ĞÔ£¬Èç²åÈë£¬²éÑ¯ºÍ¸üĞÂµÄ²Ù×÷£º</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>User user =session.get(User.class, 1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>ÍĞ¹Ü×´Ì¬£º¶ÔÏóÀïÃæÓĞ</span><span lang=EN-US>id</span><span
+style='font-family:ËÎÌå'>Öµ£¬¶ÔÏóÓë</span><span lang=EN-US>session</span><span
+style='font-family:ËÎÌå'>Ã»ÓĞ¹ØÁª£¬</span><span lang=EN-US>close(),clear(), evict()</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>User user =new User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>user.setUid(3);</span></p>
 
 <h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.8<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄÊÂÎñ²Ù×÷</span></h3>
+lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄÒ»¼¶»º´æ</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>Êı¾İ´æµ½Êı¾İ¿âÀïÃæ£¬Êı¾İ¿â±¾ÉíÊÇÎÄ¼şÏµÍ³£¬Ê¹ÓÃÁ÷·½Ê½²Ù×÷ÎÄ¼ş±¾ÉíĞ§ÂÊ²¢²»¸ß£¬°ÑÊı¾İ´æµ½ÄÚ´æÀïÃæ£¬²»ĞèÒªÊ¹ÓÃÁ÷µÄ·½Ê½£¬¿ÉÒÔÖ±½Ó¶ÁÈ¡ÄÚ´æÀïÃæµÄÊı¾İ£¬Ìá¸ß¶ÁÈ¡Ğ§ÂÊ¡£</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>¿ò¼ÜÖĞÓĞºÜ¶àÓÅ»¯µÄÊÖ¶Î£¬ÆäÖĞ»º´æÊÇÆäÖĞÒ»¸öÊÖ¶Î£¬</span><span
+lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>ÓĞÒ»¼¶»º´æºÍ¶ş¼¶»º´æ£¬Ò»¼¶»º´æÊÇÄ¬ÈÏ´ò¿ªµÄ£¬ÊôÓÚ</span><span
+lang=EN-US>session</span><span style='font-family:ËÎÌå'>¼¶»º´æ£¬ËùÒÔËüµÄÉúÃüÖÜÆÚÓë</span><span
+lang=EN-US>session</span><span style='font-family:ËÎÌå'>ÏàÍ¬£¬Ëæ</span><span
+lang=EN-US>session</span><span style='font-family:ËÎÌå'>´´½¨¶ø´´½¨£¬Ëæ</span><span
+lang=EN-US>session</span><span style='font-family:ËÎÌå'>Ïú»Ù¶øÏú»Ù£¬¶øÇÒ´æ´¢Êı¾İ±ØĞëÊÇ³Ö¾Ã»¯Êı¾İ¡£¹ı³Ì£ºÊ×ÏÈ£¬²éÑ¯Ò»¼¶»º´æ·¢ÏÖÃ»Êı¾İ£¬²Å»áÈ¥²éÑ¯Êı¾İ£¬·µ»Ø²éÑ¯¶ÔÏó£¨³Ö¾Ã»¯¶ÔÏó£©£¬È»ºó£¬°Ñ³Ö¾Ã»¯¶ÔÏóµÄÖµ·Åµ½Ò»¼¶»º´æÖĞ£»Èô²éÑ¯Ò»¼¶»º´æÖĞ´æÔÚÏàÍ¬µÄÊı¾İ£¬Ö±½Ó·µ»Ø¡£</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>Ò»¼¶»º´æµÄ¸üĞÂÌØĞÔ£º³Ö¾ÃÌ¬×Ô¶¯¸üĞÂÊı¾İ¿â£¨²»ĞèÒªĞ´</span><span
+lang=EN-US>update</span><span style='font-family:ËÎÌå'>·½·¨£©¡£¹ı³Ì£º´´½¨</span><span
+lang=EN-US>session</span><span style='font-family:ËÎÌå'>¶ÔÏóÊ±£¬×Ô¶¯´´½¨Ò»¼¶»º´æ¶ÔÏóºÍ¿ìÕÕÇø£¨¸±±¾£©£¬µ±³Ö¾ÃÌ¬¶ÔÏó±»´´½¨Ê±£¬³Ö¾ÃÌ¬±»·Åµ½Ò»¼¶»º´æ¼°Æä¶ÔÓ¦µÄ¿ìÕÕÇøÖĞ</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>User user
+=session.get(User.class, 1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>user.setName(¡°lvhongbin¡±);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>tx.commit();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='font-family:ËÎÌå'>ĞŞ¸Ä</span><span lang=EN-US>user</span><span
+style='font-family:ËÎÌå'>¶ÔÏóÀïÃæµÄÖµ£¬ĞŞ¸Ä³Ö¾ÃÌ¬¶ÔÏóµÄÖµµÄÍ¬Ê±£¬ĞŞ¸ÄÒ»¼¶»º´æÖĞµÄÄÚÈİ£¬µ«ÊÇ²»»áĞŞ¸Ä¶ÔÕÕÇøÖĞµÄÄÚÈİ¡£×îºóÌá½»ÊÂÎñµÄÊ±ºò£¬±È½ÏÒ»¼¶»º´æºÍ¿ìÕÕÇøµÄÄÚÈİÊÇ·ñÏàÍ¬£¬Èç¹û²»ÏàÍ¬£¬Ôò°ÑÒ»¼¶»º´æÖĞµÄÄÚÈİ¸üĞÂµ½Êı¾İ¿âÀïÃæ£¬Èç¹ûÏàÍ¬£¬Ôò²»¸üĞÂ¡£</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄ¶ş¼¶»º´æ£¬Ä¿Ç°ÒÑ¾­²»ÓÃÁË£¬Ìæ´ú¼¼ÊõÎª</span><span
+lang=EN-US>redis</span><span style='font-family:ËÎÌå'>£¬Ä¬ÈÏÊÇ²»´ò¿ªµÄ£¬ĞèÒªÅäÖÃ£¬ÊôÓÚ</span><span
+lang=EN-US>sessionFaction</span><span style='font-family:ËÎÌå'>¼¶»º´æ¡£</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:ËÎÌå'>ÑéÖ¤Ò»¼¶»º´æµÄ´æÔÚ£¬</span> <span style='font-family:ËÎÌå'>¸ú¾İ</span><span
+lang=EN-US>uid=1</span><span style='font-family:ËÎÌå'>²éÑ¯£¬·µ»Ø¶ÔÏó£»ÔÙ´Î¸ù¾İ</span><span
+lang=EN-US>uid=1</span><span style='font-family:ËÎÌå'>²éÑ¯£¬·µ»Ø¶ÔÏó£¬Í¨¹ı¶Ïµã</span><span
+lang=EN-US>debug</span><span style='font-family:ËÎÌå'>²é¿´¡£</span></p>
 
 <h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.9<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄÆäËû</span><span
-lang=EN-US>api</span></h3>
+lang=EN-US>Hibernate</span><span style='font-family:ËÎÌå'>µÄÊÂÎñ²Ù×÷</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:ËÎÌå'>²»¿¼ÂÇ¸ôÀë²úÉúµÄÎÊÌâ£ºÔà¶Á£¬²»¿ÉÖØ¸´¶ÁºÍĞé¶Á¡£</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.10<span
+style='font:7.0pt "Times New Roman"'> </span></span><span lang=EN-US>Hibernate</span><span
+style='font-family:ËÎÌå'>µÄÆäËû</span><span lang=EN-US>api</span></h3>
 
 <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
