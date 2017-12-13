@@ -1,25 +1,28 @@
 package com.lvhongbin.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
 	
 	private String name="name";
 	private String password="password";
 	private String email="email";
 	private String sex="sex"; 
-	private Long id=(long) 10000;
+	private Integer id=10000;
 	private String date="date";
-	
+	private Set<Role> setRole=new HashSet<Role>();
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**
@@ -88,5 +91,17 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", password=" + password + ", sex=" + sex + "]";
+	}
+	/**
+	 * @return the setRole
+	 */
+	public Set<Role> getSetRole() {
+		return setRole;
+	}
+	/**
+	 * @param setRole the setRole to set
+	 */
+	public void setSetRole(Set<Role> setRole) {
+		this.setRole = setRole;
 	}
 }

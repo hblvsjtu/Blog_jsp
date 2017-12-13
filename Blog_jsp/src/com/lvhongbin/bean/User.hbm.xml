@@ -13,5 +13,9 @@
 	     <property name="password" column="password"></property>
 	     <property name="email" column="email"></property>
 	     <property name="sex" column="sex"></property>
+	     <set name="setRole" table="user_role" cascade="save-update,delete">
+			<key column="userid"></key>
+			<many-to-many class="com.lvhongbin.bean.Role" column="roleid"></many-to-many>
+		 </set>
 	    </class>
     </hibernate-mapping>

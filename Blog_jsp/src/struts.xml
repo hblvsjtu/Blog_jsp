@@ -60,5 +60,11 @@
         <action name="action9" class="com.lvhongbin.action.UserAction" method="action9">
         	<result name="success">/jsp/TestStruts2.jsp</result>
         </action>
+        <action name="TestHibernate" class="com.lvhongbin.test.TestHibernate" method="Test">
+        	<result name="success">/jsp/TestHibernate.jsp</result>
+        </action>
+        <action name="TestHibernatedelete" class="com.lvhongbin.test.TestHibernate" method="delete">
+        	<result name="success">/jsp/TestHibernate.jsp</result>
+        </action>
     </package>
 </struts>
