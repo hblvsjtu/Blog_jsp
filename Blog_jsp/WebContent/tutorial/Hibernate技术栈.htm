@@ -903,28 +903,28 @@ style='font-family:宋体'>的操作；</span></p>
 <p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
 13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
 avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
-173%;display:none'>1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+173%;display:none'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
 display:none'>&nbsp;</span></b></p>
 
 <p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
 13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
 avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
-173%;display:none'>2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+173%;display:none'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
 display:none'>&nbsp;</span></b></p>
 
 <p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
 13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
 avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
-173%;display:none'>3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+173%;display:none'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
 display:none'>&nbsp;</span></b></p>
 
 <p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
 13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
 avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
-173%;display:none'>4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+173%;display:none'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
 display:none'>&nbsp;</span></b></p>
 
@@ -1068,19 +1068,2148 @@ lang=EN-US>debug</span><span style='font-family:宋体'>查看。</span></p>
 
 <h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.9<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-lang=EN-US>Hibernate</span><span style='font-family:宋体'>的事务操作</span></h3>
+lang=EN-US>Hibernate</span><span style='font-family:宋体'>事务的的那些事</span></h3>
 
 <p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
 lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-family:宋体'>不考虑隔离产生的问题：脏读，不可重复读和虚读。</span></p>
+</span></span><span style='font-family:宋体'>什么是事务；</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>事物的特性：原子性，隔离性，一致性和持久性；</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>不考虑隔离产生的问题：脏读，不可重复读和幻读。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>脏读</span> <span style='font-family:
+宋体'>指一个事务正在访问数据并且准备修改数据，在该事务提交到数据库前，另一个事务访问并且使用了这个数据。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>不可重复读</span> <span style='font-family:
+宋体'>指一个事务在多次读同一数据期间，存在其他事务访问并且修改了该数据，使得第一个事务在多次读同一数据过程中，无法读取到相同的数据。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>幻读</span> <span style='font-family:
+宋体'>是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>设置事务的隔离级别。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>为了避免事务并发问题的发生，在标准</span><span lang=EN-US>SQL</span><span
+style='font-family:宋体'>规范中，定义了</span><span lang=EN-US>4</span><span
+style='font-family:宋体'>个事务隔离级别，如：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>读未提交（</span><span lang=EN-US>Read
+Uncommitted</span><span style='font-family:宋体'>，</span><span lang=EN-US>1</span><span
+style='font-family:宋体'>级）一个事务在执行过程中，可以访问其他未提交事务的插入数据或者是修改数据。多个事务不可同时执行写的操作，读的操作则可以同时进行。这样做可以防止丢失更新。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>已提交读（</span><span lang=EN-US>Read Committed</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>2</span><span style='font-family:
+宋体'>级）</span> <span style='font-family:宋体'>一个事务在执行过程中，可以访问其他已提交事务的插入数据或者是修改数据。读的操作则可以同时进行。但是未提交的写事务将禁止其他事务进行访问，这样做可以有效防止脏读。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>可重复读（</span><span lang=EN-US>Repeatable
+Read</span><span style='font-family:宋体'>，</span><span lang=EN-US>4</span><span
+style='font-family:宋体'>级）一个事务在执行过程中，可以访问其他已提交事务的插入数据，但不可以或访问成功修改的数据。读取数据的事务将禁止写事务，多个读取数据的事务可以同时进行，写事务则禁止任何其他的事务，这样可以有效防止不可重复读和脏读。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>d)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>序列化</span><span lang=EN-US>/</span><span
+style='font-family:宋体'>串行化（</span><span lang=EN-US>Serializable</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>8</span><span style='font-family:
+宋体'>级）</span> <span style='font-family:宋体'>非常严格的事务隔离，要求事务序列化执行，即串行，不能并发，这样可以有效防止脏读，不可重复读和幻读。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>mysql</span><span style='font-family:宋体'>的默认隔离级别</span>
+<span lang=EN-US>repeatable read</span><span style='font-family:宋体'>，但也可以配置隔离级别，代码如下：</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&lt;property name=</span><span style='font-family:宋体'>“</span><span
+lang=EN-US>hibernate.connection.isolaton</span><span style='font-family:宋体'>”</span><span
+lang=EN-US>&gt;4&lt;/ property&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><a
+name="_Hlk500761864"><span lang=EN-US>6)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>规范写法：</span></a></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>SessionFactory
+sessionFactory=null;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Session
+session=null;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transaction
+tx=null;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try
+{</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sessionFactory=HibernateUtil.getSessionFactory();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session=sessionFactory.openSession();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx=session.beginTransaction();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user=new
+User();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setName(&quot;lvhongbin&quot;);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setPassword(&quot;12345687&quot;);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setSex(&quot;male&quot;);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(user);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx.commit();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+catch (Exception e) {</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx.rollback();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }finally
+{</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.close();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //sessionFactory.close();</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
 
 <h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>4.10<span
-style='font:7.0pt "Times New Roman"'> </span></span><span lang=EN-US>Hibernate</span><span
-style='font-family:宋体'>的其他</span><span lang=EN-US>api</span></h3>
+style='font:7.0pt "Times New Roman"'> </span></span><span lang=EN-US>session</span><span
+style='font-family:宋体'>与本地线程绑定</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>在</span><span lang=EN-US>hibernate</span><span
+style='font-family:宋体'>核心配置文件中配置；</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&lt;property
+name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>调用</span><span lang=EN-US>sessionFactory</span><span
+style='font-family:宋体'>里面的方法得到；</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>public class HibernateUtil {</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private final static Configuration
+cfg;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private final static SessionFactory
+sessionFactory;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static {</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cfg
+= new Configuration();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cfg.configure();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sessionFactory=cfg.buildSessionFactory();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static SessionFactory
+getSessionFactory() {</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return
+sessionFactory;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static Session
+getCurrentSession() {</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return
+sessionFactory.getCurrentSession();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>通过单例构建的对象最后一般不能使用</span><span
+lang=EN-US>close</span><span style='font-family:宋体'>（）方法结束并回收资源，否则再次使用对象时会报错；</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>另外，</span><span lang=EN-US>session</span><span
+style='font-family:宋体'>对象不能设置为</span><span lang=EN-US>static</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>final</span><span
+style='font-family:宋体'>类型，因为每次对话都需要新建，但是挂钩的</span><span lang=EN-US>sessionFactory</span><span
+style='font-family:宋体'>可以是</span><span lang=EN-US>static</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>final</span><span
+style='font-family:宋体'>类型</span></p>
+
+<h2 style='margin-left:21.0pt;text-indent:-21.0pt'><span lang=EN-US>五、<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>Hibernate</span>的<span lang=EN-US>api</span>使用<span lang=EN-US> </span></h2>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>5.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>对象</span></h3>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span style='font-family:宋体'>使用</span><span
+lang=EN-US>query</span><span style='font-family:宋体'>对象不需要写</span><span
+lang=EN-US>sql</span><span style='font-family:宋体'>语句，但是写</span><span
+lang=EN-US>hql</span><span style='font-family:宋体'>（</span><span lang=EN-US>hibernate
+query language</span><span style='font-family:宋体'>）</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>操作的是操作表和字段，</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>操作的是实体类和属性。方法：</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先创建</span><span lang=EN-US>query</span><span
+style='font-family:宋体'>对象，代码如下：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Query</span><span
+style='font-family:宋体'>方法进行查询</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>@SuppressWarnings(&quot;unchecked&quot;)</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>Query&lt;User&gt;
+query=session.createQuery(&quot;from User&quot;);//</span><span
+style='font-family:宋体'>注意</span><span lang=EN-US>from</span><span
+style='font-family:宋体'>后面跟着是实体类名字。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后调用</span><span lang=EN-US>query</span><span
+style='font-family:宋体'>对象里面的方法，其返回值是一个实体类对象，代码如下：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>List&lt;User&gt;
+list1=query.list();</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>for(User user2:list1)
+{</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(user2);</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>}</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>5.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>对象</span></h3>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span style='font-family:宋体'>使用该对象进行查询操作时，不需要写语句，直接可以调用方法，方法：</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先创建</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>对象，代码如下：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行查询</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>@SuppressWarnings(&quot;deprecation&quot;)</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt'><span lang=EN-US>Criteria
+criteriaAll =session.createCriteria(User.class);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后调用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>对象里面的方法，其返回值是一个实体类对象，代码如下：</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span lang=EN-US>@SuppressWarnings(&quot;unchecked&quot;)</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;User&gt;
+list3= criteriaAll.list();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(User
+user4:list3) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(user4);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>5.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>SQLQuery</span><span style='font-family:宋体'>对象</span></h3>
+
+<p class=MsoNormal><span style='font-family:宋体'>用于调用底层</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>语句，需要先去判断获取的</span><span lang=EN-US>list</span><span
+style='font-family:宋体'>对象是否非空，实现过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先创建</span><span lang=EN-US>SQLQuery</span><span
+style='font-family:宋体'>对象，代码如下：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>SQLQuery</span><span
+style='font-family:宋体'>方法进行查询</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @SuppressWarnings({
+&quot;deprecation&quot;, &quot;unchecked&quot; })</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLQuery&lt;Object[]&gt;
+sqlQuery =session.createSQLQuery(&quot;SELECT * from tbl_user1&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后调用</span><span lang=EN-US>SQLQuery</span><span
+style='font-family:宋体'>对象里面的方法，其返回值是一个数组，数组转换为字符串需要调用</span><span lang=EN-US>Arrays.toString(Object[])</span><span
+style='font-family:宋体'>方法，主要代码如下：</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @SuppressWarnings(&quot;deprecation&quot;)</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Object[]&gt;
+list5=sqlQuery.list();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Object[]
+Objects:list5) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(Arrays.toString(Objects));</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>可以用</span><span lang=EN-US>session. addEntity()</span><span
+style='font-family:宋体'>方法将返回的数组转换为实体类对象，代码如下：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行查询</span><span lang=EN-US>2&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLQuery
+sqlQuery2 =session.createSQLQuery(&quot;SELECT * from tbl_user1&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlQuery2.addEntity(User.class);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;User&gt;
+list6=sqlQuery2.list();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(User
+user7:list6) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(user7);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<h2 style='margin-left:21.0pt;text-indent:-21.0pt'><span lang=EN-US>六、<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>Hibernate</span>高级应用<span lang=EN-US> </span></h2>
+
+<p class=MsoListParagraph style='margin-top:13.0pt;margin-right:0cm;margin-bottom:
+13.0pt;margin-left:21.25pt;text-indent:-21.25pt;line-height:173%;page-break-after:
+avoid;display:none'><b><span lang=EN-US style='font-size:16.0pt;line-height:
+173%;display:none'>6)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:16.0pt;line-height:173%;
+display:none'>&nbsp;</span></b></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>表与表之间关系回顾</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>一对多</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>用的场景很多：分类和商品关系，一个分类里面有很多商品，一个商品只能属于一个分类；客户（与公司有业务往来的集体，如</span><span
+lang=EN-US>360</span><span style='font-family:宋体'>，百度和腾讯等）和联系人（客户里面的员工）的关系。建表时表与表</span>
+<span style='font-family:宋体'>通过外键建立关系。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>多对多</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>订单和商品的关系，一个订单里面有很多商品，一个商品属于多个订单。需要创建第三张表，至少有两个字段作为主键，分别指向两个表的主键。</span>
+</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>一对一</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>在中国，一个男人只能有一个妻子，一个女人只能有一个丈夫。</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>一对多的操作</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>映射配置</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>以客户和联系人为例</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>创建实体类，分别为客户和联系人；</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>让两个实体类之间相互表示，即在客户实体类里面用</span><span
+lang=EN-US>Set</span><span style='font-family:宋体'>集合</span><span lang=EN-US>(</span><span
+style='font-family:宋体'>无序</span><span lang=EN-US>)</span><span
+style='font-family:宋体'>表示多个联系人：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>private Set&lt;LinkMan&gt; setLinkman=new HashSet&lt;LinkMan&gt;();</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>* @return the setLinkman</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>public Set&lt;LinkMan&gt; getSetLinkman() {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>return setLinkman;</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;* @param setLinkman the setLinkman to set</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>public void setSetLinkman(Set&lt;LinkMan&gt; setLinkman) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>this.setLinkman = setLinkman;</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>一个联系人只能属于一个客户：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>private Customer customer;</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *
+@return the customer</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>public Customer getCustomer() {</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>return customer;</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>* @param customer the customer to set</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>public void setCustomer(Customer customer) {</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>this.customer = customer;</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><a
+name="OLE_LINK8"><span lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>为客户配置映射关系：</span></a></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setLinkMan&quot;&gt;&nbsp;&nbsp;&nbsp;&nbsp; //</span><a
+name="OLE_LINK6"><span style='font-family:宋体'>其中</span><span lang=EN-US>name</span></a><span
+style='font-family:宋体'>的属性是</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>集合的名称</span></p>
+
+<p class=MsoListParagraph style='margin-left:36.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;key column=&quot;clid&quot;&gt;&lt;/key&gt;&nbsp; //key</span><span
+style='font-family:宋体'>是外键，本来只需要在<a name="OLE_LINK7">多的一方</a>建立，但在</span><span
+lang=EN-US>hibernate</span><span style='font-family:宋体'>的机制中，外键需要双方来维护</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;one-to-many
+class=&quot;com.lvhongbin.bean.LinkMan&quot;/&gt; //</span><span
+style='font-family:宋体'>其中</span><span lang=EN-US>class</span><span
+style='font-family:宋体'>的属性是多的一方实体类的全路径</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt'><span lang=EN-US>&lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>为联系人配置映射关系：</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt'><span lang=EN-US>&lt;many-to-one
+name=&quot;customer&quot; class=&quot;com.lvhongbin.bean.Customer&quot; <a
+name="OLE_LINK10">column</a>=&quot;clid&quot;&gt;&lt;/many-to-one&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt'><span lang=EN-US>//</span><span
+style='font-family:宋体'>其中</span><span lang=EN-US>name</span><span
+style='font-family:宋体'>的属性值指的是在多的一方实体类中建立的<a name="OLE_LINK9">一的一方的成员变量名</a>，</span><span
+lang=EN-US>class</span><span style='font-family:宋体'>的属性值是一的一方实体类的全路径，</span><span
+lang=EN-US>column</span><span style='font-family:宋体'>属性值是外键的名称</span></p>
 
 <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>一对多级联添加操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>法一：复杂的做法</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>Customer customer= new Customer(); //</span><span style='font-family:
+宋体'>添加客户对象</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustName(&quot;</span><span
+style='font-family:宋体'>上海交通大学</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustLevel(&quot;vip&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustSource(&quot;</span><span
+style='font-family:宋体'>网络</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustPhone(&quot;54749110&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustMobile(&quot;110&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkMan
+linkMan1 = new LinkMan(); //</span><span style='font-family:宋体'>添加联系人对象</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_name(&quot;Lucy&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_gender(&quot;female&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_phone(&quot;911&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkMan
+linkMan2 = new LinkMan();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_name(&quot;Ben&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_gender(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_phone(&quot;120&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.getSetLinkMan().add(linkMan1); </span><span
+style='font-family:宋体'>配置客户和联系人的映射关系</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.getSetLinkMan().add(linkMan2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setCustomer(customer);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setCustomer(customer);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(customer);&nbsp;&nbsp; //</span><span
+style='font-family:宋体'>添加客户和联系人的业务操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(linkMan1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(linkMan2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>法二：简单的做法</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><a
+name="_Hlk500855642"><span lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先在客户映射文件中的</span><span lang=EN-US>set</span></a><span
+style='font-family:宋体'>标签下添加</span><span lang=EN-US>cascade</span><span
+style='font-family:宋体'>属性</span><span lang=EN-US>save-update</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setLinkMan&quot;
+cascade=&quot;save-update&quot;&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;clid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;one-to-many
+class=&quot;com.lvhongbin.bean.LinkMan&quot;/&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后添加客户和联系人对象，把联系人放到客户里面，最终保存客户即可</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>级联保存</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer
+customer= new Customer();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustName(&quot;</span><span
+style='font-family:宋体'>百度</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustLevel(&quot;vip&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustSource(&quot;</span><span
+style='font-family:宋体'>网络</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustPhone(&quot;54749110&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.setCustMobile(&quot;110&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkMan
+linkMan1 = new LinkMan();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_name(&quot;Jenny&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_gender(&quot;female&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan1.setLkm_phone(&quot;911&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkMan
+linkMan2 = new LinkMan();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_name(&quot;Micle&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_gender(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan2.setLkm_phone(&quot;120&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.getSetLinkMan().add(linkMan1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.getSetLinkMan().add(linkMan2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //linkMan1.setCustomer(customer);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //linkMan2.setCustomer(customer);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(customer);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //session.save(linkMan1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //session.save(linkMan2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: insert into tbl_Customer (custName, custLevel,
+custSource, custPhone, custMobile) values (?, ?, ?, ?, ?)</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: insert into tbl_LinkMan (lkm_name, lkm_gender, lkm_phone,
+clid) values (?, ?, ?, ?)</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt'><span lang=EN-US>Hibernate:
+insert into tbl_LinkMan (lkm_name, lkm_gender, lkm_phone, clid) values (?, ?,
+?, ?)</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>一对多级联删除操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先在客户映射文件中的</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>标签下添加</span><span lang=EN-US>cascade</span><span
+style='font-family:宋体'>属性</span><span lang=EN-US>delete</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>&lt;set name=&quot;setLinkMan&quot; cascade=&quot;save-update,
+delete&quot;&gt;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;clid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;one-to-many
+class=&quot;com.lvhongbin.bean.LinkMan&quot;/&gt;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后跟据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询对象，调用</span><span lang=EN-US>session</span><span
+style='font-family:宋体'>中的</span><span lang=EN-US>delete</span><span
+style='font-family:宋体'>方法删除即可</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>级联删除</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer
+customer3=session.get(Customer.class, 2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.delete(customer3);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>跟据主键查询客户</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select customer0_.cid as cid1_0_0_, customer0_.custName
+as custName2_0_0_, customer0_.custLevel as custLeve3_0_0_,
+customer0_.custSource as custSour4_0_0_, customer0_.custPhone as
+custPhon5_0_0_, customer0_.custMobile as custMobi6_0_0_ from tbl_Customer
+customer0_ where customer0_.cid=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>跟据外键查询联系人</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select setlinkman0_.clid as clid5_1_0_,
+setlinkman0_.lkm_id as lkm_id1_1_0_, setlinkman0_.lkm_id as lkm_id1_1_1_,
+setlinkman0_.lkm_name as lkm_name2_1_1_, setlinkman0_.lkm_gender as
+lkm_gend3_1_1_, setlinkman0_.lkm_phone as lkm_phon4_1_1_, setlinkman0_.clid as
+clid5_1_1_ from tbl_LinkMan setlinkman0_ where setlinkman0_.clid=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>把外键设置为</span><span lang=EN-US>null</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set clid=null where clid=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set clid=? where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set clid=? where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>删除联系人</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: delete from tbl_LinkMan where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: delete from tbl_LinkMan where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>删除客户</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: delete from tbl_Customer where cid=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>一对多级联修改操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>跟据主键查询需要修改的<a name="OLE_LINK11">联系人和客户</a></span></p>
+
+<p class=MsoListParagraph style='margin-left:84.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>级联修改</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkMan
+linkMan4=session.get(LinkMan.class, 5);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer
+customer4=session.get(Customer.class, 1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>建立联系人和客户的映射关系</span></p>
+
+<p class=MsoListParagraph style='margin-left:84.0pt'><span lang=EN-US>customer4.getSetLinkMan().add(linkMan4);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linkMan4.setCustomer(customer4);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>跟据主键查询需要修改的联系人</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select linkman0_.lkm_id as lkm_id1_1_0_, linkman0_.lkm_name
+as lkm_name2_1_0_, linkman0_.lkm_gender as lkm_gend3_1_0_, linkman0_.lkm_phone
+as lkm_phon4_1_0_, linkman0_.clid as clid5_1_0_ from tbl_LinkMan linkman0_
+where linkman0_.lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>跟据主键查询需要修改到的另外的客户</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select customer0_.cid as cid1_0_0_, customer0_.custName
+as custName2_0_0_, customer0_.custLevel as custLeve3_0_0_,
+customer0_.custSource as custSour4_0_0_, customer0_.custPhone as
+custPhon5_0_0_, customer0_.custMobile as custMobi6_0_0_ from tbl_Customer
+customer0_ where customer0_.cid=?</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:宋体'>添加客户和联系人的映射关系</span> </p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select setlinkman0_.clid as clid5_1_0_,
+setlinkman0_.lkm_id as lkm_id1_1_0_, setlinkman0_.lkm_id as lkm_id1_1_1_,
+setlinkman0_.lkm_name as lkm_name2_1_1_, setlinkman0_.lkm_gender as
+lkm_gend3_1_1_, setlinkman0_.lkm_phone as lkm_phon4_1_1_, setlinkman0_.clid as
+clid5_1_1_ from tbl_LinkMan setlinkman0_ where setlinkman0_.clid=?</span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:15.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set lkm_name=?, lkm_gender=?,
+lkm_phone=?, clid=? where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:15.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set clid=? where lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt'><span style='font-family:宋体'>因为</span><span
+lang=EN-US>hibernate</span><span style='font-family:宋体'>是外键双向维护机制，所以需要修改外键两次，造成性能的浪费，解决的方式是让其中一方放弃外键的维护，一般让客户放弃外键的维护。在客户的映射文件中的</span><span
+lang=EN-US>set</span><span style='font-family:宋体'>标签中添加</span><span lang=EN-US>inverse</span><span
+style='font-family:宋体'>属性，默认是</span><span lang=EN-US>false</span><span
+style='font-family:宋体'>，表示不放弃维护，</span><span lang=EN-US>true</span><span
+style='font-family:宋体'>表示放弃维护。</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt'><span style='font-family:宋体'>级联修改</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select linkman0_.lkm_id as lkm_id1_1_0_,
+linkman0_.lkm_name as lkm_name2_1_0_, linkman0_.lkm_gender as lkm_gend3_1_0_,
+linkman0_.lkm_phone as lkm_phon4_1_0_, linkman0_.clid as clid5_1_0_ from
+tbl_LinkMan linkman0_ where linkman0_.lkm_id=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select customer0_.cid as cid1_0_0_, customer0_.custName
+as custName2_0_0_, customer0_.custLevel as custLeve3_0_0_, customer0_.custSource
+as custSour4_0_0_, customer0_.custPhone as custPhon5_0_0_,
+customer0_.custMobile as custMobi6_0_0_ from tbl_Customer customer0_ where
+customer0_.cid=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: select setlinkman0_.clid as clid5_1_0_,
+setlinkman0_.lkm_id as lkm_id1_1_0_, setlinkman0_.lkm_id as lkm_id1_1_1_,
+setlinkman0_.lkm_name as lkm_name2_1_1_, setlinkman0_.lkm_gender as
+lkm_gend3_1_1_, setlinkman0_.lkm_phone as lkm_phon4_1_1_, setlinkman0_.clid as
+clid5_1_1_ from tbl_LinkMan setlinkman0_ where setlinkman0_.clid=?</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><span
+lang=EN-US>Hibernate: update tbl_LinkMan set lkm_name=?, lkm_gender=?,
+lkm_phone=?, clid=? where lkm_id=?</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>多对多的操作</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>映射配置</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>以用户和角色为例</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>创建实体类，分别为用户和角色；</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>让两个用户相互表示</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>一个用户里面有多个角色，使用</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>集合；</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt'><span lang=EN-US>private
+Set&lt;Role&gt; setRole=new HashSet&lt;Role&gt;();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>* @return the setRole</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>public Set&lt;Role&gt; getSetRole() {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return setRole;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>* @param setRole the setRole to set</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>public void setSetRole(Set&lt;Role&gt; setRole) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.setRole = setRole;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>一个角色里面有多个用户，使用</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>集合；</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>private Set&lt;User&gt; setUser = new HashSet&lt;User&gt;();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>* @return the setUser</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>public Set&lt;User&gt; getSetUser() {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return setUser;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>/**</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>* @param setUser the setUser to set</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>*/</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>public void setSetUser(Set&lt;User&gt; setUser) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.setUser = setUser;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>配置映射关系</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>基本配置</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setRole&quot; table=&quot;user_role&quot;&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;userid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;many-to-many
+class=&quot;com.lvhongbin.bean.Role&quot;
+column=&quot;roleid&quot;&gt;&lt;/many-to-many&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setUser&quot; table=&quot;user_role&quot;&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;roleid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;many-to-many
+class=&quot;com.lvhongbin.bean.User&quot;
+column=&quot;userid&quot;&gt;&lt;/many-to-many&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>配置多对多关系</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>多对多级联保存</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先在用户映射文件中的</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>标签下添加</span><span lang=EN-US>cascade</span><span
+style='font-family:宋体'>属性</span><span lang=EN-US>save-update</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setLinkMan&quot;
+cascade=&quot;save-update&quot;&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;clid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;one-to-many
+class=&quot;com.lvhongbin.bean.LinkMan&quot;/&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后添加用户和角色对象，把角色放到用户里面，最终保存用户即可</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User
+user1=new User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user1.setName(&quot;</span><span
+style='font-family:宋体'>李小龙</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user1.setPassword(&quot;12345687&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user1.setSex(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User
+user2=new User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user2.setName(&quot;</span><span
+style='font-family:宋体'>霍元甲</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user2.setPassword(&quot;12345687&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user2.setSex(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User
+user3=new User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user3.setName(&quot;</span><span
+style='font-family:宋体'>爱迪生</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user3.setPassword(&quot;12345687&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user3.setSex(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Role
+role1 =new Role();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role1.setRole_name(&quot;</span><span
+style='font-family:宋体'>中国人</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role1.setRole_memo(&quot;</span><span
+style='font-family:宋体'>武术家</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Role
+role2 =new Role();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role2.setRole_name(&quot;</span><span
+style='font-family:宋体'>美国人</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role2.setRole_memo(&quot;</span><span
+style='font-family:宋体'>发明家</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user=new
+User();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setName(&quot;lvhongbin&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setPassword(&quot;12345687&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.setSex(&quot;male&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user1.getSetRole().add(role1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user2.getSetRole().add(role1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user3.getSetRole().add(role2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(user1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(user2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.save(user3);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>多对多级联删除</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>首先在用户映射文件中的</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>标签下添加</span><span lang=EN-US>cascade</span><span
+style='font-family:宋体'>属性</span><span lang=EN-US>delete</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>&lt;set name=&quot;setLinkMan&quot;
+cascade=&quot;save-update&quot;&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key
+column=&quot;clid&quot;&gt;&lt;/key&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;one-to-many
+class=&quot;com.lvhongbin.bean.LinkMan&quot;/&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/set&gt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>然后跟据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询所删除的用户，添加删除操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:105.0pt;text-indent:0cm'><span
+lang=EN-US>User user1=session.get(User.class, 1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:105.0pt;text-indent:0cm'><span
+lang=EN-US>Session.delete(user1);</span></p>
+
 <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>维护第三张表关系</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>让某个用户拥有某个角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>首先根据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询用户和角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>User user =session.get(User.class,1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>Role role ==session.get(Role.class,1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>然后把角色对象放到用户</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>集合里面即可</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>user.getSetRole().add(role);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程如下：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>先查询相应的用户及其所属角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+style='font-family:宋体'>多对多级联修改</span><span lang=EN-US>-</span><span
+style='font-family:宋体'>添加角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>Hibernate: select user0_.id as id1_3_0_, user0_.name as name2_3_0_,
+user0_.password as password3_3_0_, user0_.email as email4_3_0_, user0_.sex as
+sex5_3_0_ from tbl_user1 user0_ where user0_.id=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>Hibernate: select role0_.role_id as role_id1_2_0_, role0_.role_name
+as role_nam2_2_0_, role0_.role_memo as role_mem3_2_0_ from tbl_role role0_
+where role0_.role_id=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>Hibernate: select role0_.role_id as role_id1_2_0_, role0_.role_name
+as role_nam2_2_0_, role0_.role_memo as role_mem3_2_0_ from tbl_role role0_
+where role0_.role_id=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>再进行添加操作</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>Hibernate: select setrole0_.userid as userid1_4_0_, setrole0_.roleid
+as roleid2_4_0_, role1_.role_id as role_id1_2_1_, role1_.role_name as
+role_nam2_2_1_, role1_.role_memo as role_mem3_2_1_ from user_role setrole0_
+inner join tbl_role role1_ on setrole0_.roleid=role1_.role_id where setrole0_.userid=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt'><span lang=EN-US>Hibernate:
+select setrole0_.userid as userid1_4_0_, setrole0_.roleid as roleid2_4_0_,
+role1_.role_id as role_id1_2_1_, role1_.role_name as role_nam2_2_1_,
+role1_.role_memo as role_mem3_2_1_ from user_role setrole0_ inner join tbl_role
+role1_ on setrole0_.roleid=role1_.role_id where setrole0_.userid=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>让某个用户没有某个角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+style='font-family:宋体'>首先根据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询用户和角色</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>User user =session.get(User.class,1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>Role role ==session.get(Role.class,1);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+style='font-family:宋体'>然后把角色对象放到用户</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>集合里面即可</span></p>
+
+<p class=MsoListParagraph style='margin-left:45.0pt'><span lang=EN-US>user.getSetRole().remove(role);</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>查询方式介绍</span></h3>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>对象导航查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>跟据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询客户，再查询该客户的所有联系人</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>System.out.println(&quot;</span><span
+style='font-family:宋体'>对象导航查询</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+name="_Hlk500930562">Customer customer8 = session.get(Customer.class,97);</a></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Set&lt;LinkMan&gt;
+linkMan8= customer8.getSetLinkMan();</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>对象导航查询结果：</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(LinkMan
+linkMan8For:linkMan8) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(linkMan8For.toString());</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程如下：</span></p>
+
+<p class=MsoListParagraph style='margin-left:24.0pt'><span style='font-family:
+宋体'>对象导航查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:45.0pt;text-indent:24.0pt'><span
+lang=EN-US>Hibernate: select customer0_.cid as cid1_0_0_, customer0_.custName
+as custName2_0_0_, customer0_.custLevel as custLeve3_0_0_,
+customer0_.custSource as custSour4_0_0_, customer0_.custPhone as
+custPhon5_0_0_, customer0_.custMobile as custMobi6_0_0_ from tbl_Customer
+customer0_ where customer0_.cid=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:24.0pt'><span
+style='font-family:宋体'>对象导航查询结果：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt'><span lang=EN-US>Hibernate:
+select setlinkman0_.clid as clid5_1_0_, setlinkman0_.lkm_id as lkm_id1_1_0_,
+setlinkman0_.lkm_id as lkm_id1_1_1_, setlinkman0_.lkm_name as lkm_name2_1_1_,
+setlinkman0_.lkm_gender as lkm_gend3_1_1_, setlinkman0_.lkm_phone as
+lkm_phon4_1_1_, setlinkman0_.clid as clid5_1_1_ from tbl_LinkMan setlinkman0_
+where setlinkman0_.clid=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>OID</span><span style='font-family:宋体'>查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>跟据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询某一条记录，返回对象，使用的是</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>方法</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>Customer
+customer8 = session.get(Customer.class,97);</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>hql</span><span style='font-family:宋体'>查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>Query</span><span style='font-family:宋体'>对象，写</span><span
+lang=EN-US>hql</span><span style='font-family:宋体'>语句实现查询。</span><span
+lang=EN-US>hql</span><span style='font-family:宋体'>全称：</span><span lang=EN-US>hibernate
+query language</span><span style='font-family:宋体'>，与</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>语言最大的不同在于</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>操作的是实体类对象和属性，而</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>操作的是数据库表和字段。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+style='font-family:宋体'>使用方法为先创建</span><span lang=EN-US>query</span><span
+style='font-family:宋体'>对象，写</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>语句，然后调用</span><span lang=EN-US>query</span><span
+style='font-family:宋体'>对象里面的方法得到结果。常用的</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>语句有：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>查询所有记录</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>方法进行查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query&lt;User&gt;
+query=session.createQuery(&quot;from User&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list1=query.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(User user2:list1) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(user2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>条件查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>from </span><span style='font-family:宋体'>实体类名称</span> <span
+lang=EN-US>where </span><span style='font-family:宋体'>实体类属性名称</span><span
+lang=EN-US>=</span><span style='font-family:宋体'>？</span><span lang=EN-US>and </span><span
+style='font-family:宋体'>实体类属性名称</span><span lang=EN-US>=</span><span
+style='font-family:宋体'>？</span><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query
+queryCondition=session.createQuery(&quot;from Customer othername where
+othername.custName=?&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+othername</span><span style='font-family:宋体'>使用的是</span><span lang=EN-US>Customer</span><span
+style='font-family:宋体'>的别名</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queryCondition.setParameter(0,
+&quot;</span><span style='font-family:宋体'>百度</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='font-family:宋体'>添加属性值的时候使用的是</span><span lang=EN-US>.setParameter(int arg0,
+Object arg1)</span><span style='font-family:宋体'>方法，第一个数字从</span><span
+lang=EN-US>0</span><span style='font-family:宋体'>开始，代表属性值的位置，后面的参数表示属性值的具体内容</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Customer&gt;
+listCondition=queryCondition.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+Customer9:listCondition) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+Customer9.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+Customer9.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hibernate:
+select customer0_.cid as cid1_0_, customer0_.custName as custName2_0_,
+customer0_.custLevel as custLeve3_0_, customer0_.custSource as custSour4_0_,
+customer0_.custPhone as custPhon5_0_, customer0_.custMobile as custMobi6_0_
+from tbl_Customer customer0_ where customer0_.custName=?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>from </span><span style='font-family:宋体'>实体类名称</span> <span
+lang=EN-US>where </span><span style='font-family:宋体'>实体类属性名称</span><span
+lang=EN-US>like</span><span style='font-family:宋体'>？（实体类查询）</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>模糊查询</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>from </span><span style='font-family:宋体'>实体类名称</span> <span
+lang=EN-US>where </span><span style='font-family:宋体'>实体类属性名称</span><span
+lang=EN-US>like </span><span style='font-family:宋体'>？</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>方法进行模糊查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query
+queryConditionFuzzy=session.createQuery(&quot;from Customer othername where
+othername.custName like ?&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queryConditionFuzzy.setParameter(0,
+&quot;%</span><span style='font-family:宋体'>腾</span><span lang=EN-US>%&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='font-family:宋体'>前面的</span><span lang=EN-US>%</span><span
+style='font-family:宋体'>表示查询首字，后面的</span><span lang=EN-US>%</span><span
+style='font-family:宋体'>表示查询末字，两个都有的表示查询中间出现的字</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Customer&gt; listConditionFuzzy=queryConditionFuzzy.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+Customer9:listConditionFuzzy) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+Customer9.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+Customer9.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>Hibernate:
+select customer0_.cid as cid1_0_, customer0_.custName as custName2_0_,
+customer0_.custLevel as custLeve3_0_, customer0_.custSource as custSour4_0_,
+customer0_.custPhone as custPhon5_0_, customer0_.custMobile as custMobi6_0_
+from tbl_Customer customer0_ where customer0_.custName like ?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>d)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>排序查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>from </span><span style='font-family:宋体'>实体类名称</span><span
+lang=EN-US> order by </span><span style='font-family:宋体'>实体类属性名称</span><span
+lang=EN-US> asc/desc</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>方法进行排序查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query
+queryOrder=session.createQuery(&quot;from Customer order by cid desc&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listOrder=queryOrder.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer Customer9:listOrder) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+Customer9.getCid()+&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+Customer9.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+Customer9.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hibernate:
+select customer0_.cid as cid1_0_, customer0_.custName as custName2_0_,
+customer0_.custLevel as custLeve3_0_, customer0_.custSource as custSour4_0_,
+customer0_.custPhone as custPhon5_0_, customer0_.custMobile as custMobi6_0_
+from tbl_Customer customer0_ order by customer0_.cid desc</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>e)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>分页查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>在数据库表中使用关键字</span><span lang=EN-US>limit </span><span
+style='font-family:宋体'>后面跟着两个参数：开始位置和记录数，但是在</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>操作中，不能写</span><span lang=EN-US>limit</span><span
+style='font-family:宋体'>，而用</span><span lang=EN-US>query</span><span
+style='font-family:宋体'>的两个方法。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>首先查询全部</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query
+queryPagination=session.createQuery(&quot;from Customer&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>然后设置开始位置</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queryPagination.setFirstResult(0);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>接着设置每页显示的记录数</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>queryPagination.setMaxResults(2);</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体'>最后显示结果</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Customer&gt;
+listPagination=queryPagination.list();</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+Customer9:listPagination) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+Customer9.getCid()+&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+Customer9.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+Customer9.getCustMobile());</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hibernate:
+select customer0_.cid as cid1_0_, customer0_.custName as custName2_0_,
+customer0_.custLevel as custLeve3_0_, customer0_.custSource as custSour4_0_,
+customer0_.custPhone as custPhon5_0_, customer0_.custMobile as custMobi6_0_
+from tbl_Customer customer0_ limit ?</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>f)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>投影使用</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>用于查询某一字段的集合，用</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>语句表示为：</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>方法进行投影查询</span><span
+lang=EN-US>--</span><span style='font-family:宋体'>客户姓名</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>Query queryProjection=session.createQuery(&quot;select custName from
+Customer&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Object&gt;
+listProjection=queryProjection.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Object Customer9:listProjection)
+{</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+Customer9.toString());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>Hibernate:
+select customer0_.custName as col_0_0_ from tbl_Customer customer0_</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>g)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>聚合函数使用</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>常用的聚合函数有</span><span lang=EN-US>count</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>sum</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>avg</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>max</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>min</span><span
+style='font-family:宋体'>，使用</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>语句：</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>查询表记录数</span><span lang=EN-US> select count(*) from </span><span
+style='font-family:宋体'>实体类名称，代码如下：</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Query</span><span style='font-family:宋体'>方法进行聚合查询</span><span
+lang=EN-US>--</span><span style='font-family:宋体'>表记录数</span><span lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query
+queryAggregate=session.createQuery(&quot;select count(*) from Customer&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object
+listAggregate=queryAggregate.uniqueResult();&nbsp;&nbsp; //</span><span
+style='font-family:宋体'>返回的是一个</span><span lang=EN-US>Object</span><span
+style='font-family:宋体'>类型，但是</span><span lang=EN-US>Object</span><span
+style='font-family:宋体'>类型不能直接强转为</span><span lang=EN-US>int</span><span
+style='font-family:宋体'>类型，否则会出错正确的应该先把</span><span lang=EN-US>Object</span><span
+style='font-family:宋体'>类型转为</span><span lang=EN-US>Long</span><span
+style='font-family:宋体'>类型，然后再通过</span><span lang=EN-US>Long.intValue()</span><span
+style='font-family:宋体'>方法转为</span><span lang=EN-US>int</span><span
+style='font-family:宋体'>类型</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+listAggregate.toString());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>具体过程：</span></p>
+
+<p class=MsoListParagraph style='margin-left:63.0pt'><span lang=EN-US>Hibernate:
+select count(*) as col_0_0_ from tbl_Customer customer0_</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>QBC</span><span style='font-family:宋体'>查询</span>
+</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>对象</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>查询所有</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>如</span><span lang=EN-US>5.2</span><span
+style='font-family:宋体'>节所示</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>条件查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>没有对应的语句，而使用相应的方法</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>方法进行条件查询</span><span
+lang=EN-US>--id&gt;190&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:84.0pt;text-indent:42.0pt'><span
+lang=EN-US>Criteria criteriaCondition=session.createCriteria(Customer.class);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaCondition.add(Restrictions.eq(&quot;custName&quot;,
+&quot;</span><span style='font-family:宋体'>百度</span><span lang=EN-US>&quot;));</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaCondition.add(Restrictions.ge(&quot;cid&quot;,
+190));</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (null!=criteriaCondition.list()) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listCriteriaCondition=criteriaCondition.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+criteriaCustomer:listCriteriaCondition) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+criteriaCustomer.getCid()+&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行条件查询</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>记录数为</span><span lang=EN-US>0&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>模糊查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:60.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>方法进行模糊查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; Criteria
+criteriaConditionFuzzy=session.createCriteria(Customer.class);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaConditionFuzzy.add(Restrictions.like(&quot;custName&quot;,
+&quot;%</span><span style='font-family:宋体'>腾</span><span lang=EN-US>%&quot;));</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(null!=criteriaConditionFuzzy.list()) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listCriteriaConditionFuzzy=criteriaConditionFuzzy.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+criteriaCustomer:listCriteriaConditionFuzzy) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+criteriaCustomer.getCid()+&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else
+{</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行模糊查询</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>记录数为</span><span lang=EN-US>0&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>d)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>排列和分页查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>方法进行排列和分页查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Criteria
+criteriaOrderAndPagination=session.createCriteria(Customer.class);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaOrderAndPagination.addOrder(Order.desc(&quot;cid&quot;));</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaOrderAndPagination.setFirstResult(0);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaOrderAndPagination.setMaxResults(2);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(null!=criteriaOrderAndPagination.list()) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listCriteriaOrderAndPagination=criteriaOrderAndPagination.list();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(Customer
+criteriaCustomer:listCriteriaOrderAndPagination) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>客户</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>&quot;+criteriaCustomer.getCid()+&quot;</span><span
+style='font-family:宋体'>客户姓名：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustName()+&quot;\n</span><span
+style='font-family:宋体'>客户手机号：</span><span lang=EN-US>&quot;+criteriaCustomer.getCustMobile());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else
+{</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行模糊查询</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>记录数为</span><span lang=EN-US>0&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>e)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>统计和离线查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>离线查询实质上是将查询条件从业务层中剥离到</span><span lang=EN-US>Web</span><span
+style='font-family:宋体'>层，从而使查询条件与持久化和查询解耦。其中主要用到</span><span lang=EN-US>DetachedCriteria</span><span
+style='font-family:宋体'>类，代码如下：</span></p>
+
+<p class=MsoListParagraph style='margin-left:81.0pt;text-indent:24.0pt'><span
+lang=EN-US>System.out.println(&quot;</span><span style='font-family:宋体'>使用</span><span
+lang=EN-US>Criteria</span><span style='font-family:宋体'>方法进行统计和离线查询</span><span
+lang=EN-US>&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DetachedCriteria
+detachedCriteria=DetachedCriteria.forClass(Customer.class);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Criteria
+criteriaStatistical=detachedCriteria.getExecutableCriteria(session);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; criteriaStatistical.setProjection(Projections.rowCount());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listCriteriaStatistical=criteriaStatistical.uniqueResult();</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(null!=listCriteriaStatistical) {</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Long
+listCriteriaStatisticalLong=(Long) listCriteriaStatistical;</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行模糊查询</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>记录数为</span><span lang=EN-US>&quot;+listCriteriaStatisticalLong.intValue());</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else
+{</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:24.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;</span><span
+style='font-family:宋体'>使用</span><span lang=EN-US>Criteria</span><span
+style='font-family:宋体'>方法进行模糊查询</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>记录数为</span><span lang=EN-US>0&quot;);</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>本地</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>SQLQuery</span><span style='font-family:宋体'>对象，使用普通的</span><span
+lang=EN-US>sql</span><span style='font-family:宋体'>实现查询</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.5<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US>HQL</span><span style='font-family:宋体'>多表查询</span></h3>
+
+<p class=MsoNormal><span style='font-family:宋体'>以客户和联系人为例</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:-21.25pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>内连接</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+style='font-family:宋体'>两个表都有关联的数据才会显示</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>SELECT * FROM t_customer c, t_linkMan l WHERE c.cid=l.clid</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+style='font-family:宋体'>或者</span> <span lang=EN-US>SELECT * FROM t_customer c INNER
+JOIN t_linkMan l ON c.cid=l.clid</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>hql</span><span style='font-family:宋体'>语言中：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>from Customer c
+inner join c.setLinkMan</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-family:宋体'>返回的</span><span
+lang=EN-US>list</span><span style='font-family:宋体'>对象是数组的形式</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:-21.25pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>左外连接</span> </p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+style='font-family:宋体'>左边的表是全的，右边的表只有跟左边表相关联的记录才会显示</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>SELECT * FROM t_customer c LEFT OUTER JOIN t_linkMan l ON
+c.cid=l.clid</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>from Customer c left outer join c.setLinkMan</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:-21.25pt'><span
+lang=EN-US>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>右外连接</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+style='font-family:宋体'>右边的表是全的，左边的表只有跟右边表相关联的记录才会显示</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>SELECT * FROM t_customer c RIGHT OUTER JOIN t_linkMan l ON
+c.cid=l.clid</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>from Customer c right outer join c.setLinkMan</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:-21.25pt'><span
+lang=EN-US>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>迫切内连接（</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>特有）</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+style='font-family:宋体'>迫切内连接与内连接的相同之处在于两者的底层实现是一样的，区别在于内连接返回的</span><span
+lang=EN-US>list</span><span style='font-family:宋体'>中每部分是数组，而迫切内连接返回</span><span
+lang=EN-US>list</span><span style='font-family:宋体'>的每部分是对象。</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>from Customer c inner join &nbsp;fetch c.setLinkMan</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:-21.25pt'><span
+lang=EN-US>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>迫切左外连接（</span><span lang=EN-US>hql</span><span
+style='font-family:宋体'>特有）</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.25pt;text-indent:0cm'><span
+lang=EN-US>from Customer c left outer join fetch c.setLinkMan</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.6<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>检索策略</span> </h3>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>检索策略的概念</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>检索策略分为两类，分别是立即查询和延迟查询。前者跟据</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>查询，调用</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>方法，一调用</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>方法马上发送发送语句查询数据库。后者调用</span><span lang=EN-US>load</span><span
+style='font-family:宋体'>的方法，调用</span><span lang=EN-US>load</span><span
+style='font-family:宋体'>方法不会马上发送语句查询数据，只有返回的对象非</span><span lang=EN-US>id</span><span
+style='font-family:宋体'>属性被调用的时候才会发送语句查询数据库。而延迟查询又分为两类，分别是类级别延迟和关联级别延迟，前者跟据</span><span
+lang=EN-US>id</span><span style='font-family:宋体'>查询返回实体类对象，调用</span><span
+lang=EN-US>load</span><span style='font-family:宋体'>方法不会马上发送语句；后者跟据</span><span
+lang=EN-US>id</span><span style='font-family:宋体'>查询客户，再根据客户查询其所有联系人的过程的延迟，只有联系人被调用的时候才会被发送</span><span
+lang=EN-US>sql</span><span style='font-family:宋体'>语句，这个无论用</span><span
+lang=EN-US>get</span><span style='font-family:宋体'>或者用</span><span lang=EN-US>load</span><span
+style='font-family:宋体'>方法都可以，因为这是系统默认的。</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:宋体'>如何修改关联级别延迟</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt;text-indent:0cm'><span
+style='font-family:宋体'>需要在客户的映射文件中进行相应的配置，在</span><span lang=EN-US>set</span><span
+style='font-family:宋体'>标签的</span><span lang=EN-US>fetch</span><span
+style='font-family:宋体'>（值：</span><span lang=EN-US>select</span><span
+style='font-family:宋体'>）属性和</span><span lang=EN-US>lazy</span><span
+style='font-family:宋体'>（值：</span><span lang=EN-US>true</span><span
+style='font-family:宋体'>延迟</span> <span lang=EN-US>| false</span><span
+style='font-family:宋体'>不延迟</span> <span lang=EN-US>| extra</span><span
+style='font-family:宋体'>极其延迟）属性，两个属性都要设，默认是</span><span lang=EN-US>fetch=”select”
+</span><span style='font-family:宋体'>和</span><span lang=EN-US>lazy=”true”</span><span
+style='font-family:宋体'>。如果</span><span lang=EN-US>lazy=”false”</span><span
+style='font-family:宋体'>时，执行</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>或者</span><span lang=EN-US>load</span><span
+style='font-family:宋体'>进行查询时，同时发送查询客户和联系人的</span><span lang=EN-US>sql</span><span
+style='font-family:宋体'>语句，若</span><span lang=EN-US>lazy=” extra”</span><span
+style='font-family:宋体'>，需要什么才执行什么。</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<h3 style='margin-left:49.6pt;text-indent:-1.0cm'><span lang=EN-US>6.7<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:宋体'>批量抓取</span></h3>
+
+<p class=MsoNormal><span style='font-family:宋体'>应用场景：查询所有客户，并得到每个客户的所有联系人</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体'>小白可能会想，只要遍历查询到的客户，再通过对象导航查询遍历每个客户的联系人即可。但是这样发送太多的</span><span
+lang=EN-US>sql</span><span style='font-family:宋体'>语句，有严重的性能问题。</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体'>优化：在客户的映射文件中色</span><span
+lang=EN-US>set</span><span style='font-family:宋体'>标签添加</span><span lang=EN-US>batch-size</span><span
+style='font-family:宋体'>属性，值为任意正整数，盖正整数越大，发送的语句越少，性能越高</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
 
 <p class=MsoNormal><span lang=EN-US>JavaBean,</span><span style='font-family:
 宋体'>更正确的叫法为实体类，拥有</span><span lang=EN-US>get</span><span style='font-family:
