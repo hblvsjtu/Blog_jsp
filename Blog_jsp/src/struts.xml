@@ -66,5 +66,23 @@
         <action name="TestHibernatedelete" class="com.lvhongbin.test.TestHibernate" method="delete">
         	<result name="success">/jsp/TestHibernate.jsp</result>
         </action>
+        <action name="testSpring1" class="com.lvhongbin.test.TestSpring" method="testIoC1">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testSpring2" class="com.lvhongbin.test.TestSpring" method="testIoC2">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testSpring3" class="com.lvhongbin.test.TestSpring" method="testIoC3">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testSpring4" class="com.lvhongbin.test.TestSpring" method="testIoC4">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testSpring5" class="com.lvhongbin.test.TestSpring" method="testIoC5">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testSpring6" class="com.lvhongbin.test.TestSpring" method="testIoC6">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
     </package>
 </struts>

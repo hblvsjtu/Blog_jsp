@@ -1227,7 +1227,17 @@ public class TestDesignPattern {
 	}
 	
 	
-	
+//创建工厂，使用dom4j解析配置文件+反射
+	//返回UserService对象的方法
+	public static User getUser() {
+		//使用dom4j解析配置文件
+		//跟据ID值得到所对应的class属性值
+		String classValue ="class属性值";
+		//使用反射创建类对象
+		Class clazz=Class.forName(classValue);
+		User user=clazz.newInstance();
+		return user
+	}
 	
 	
 	
