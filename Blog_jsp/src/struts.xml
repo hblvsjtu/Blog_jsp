@@ -84,5 +84,8 @@
         <action name="testSpring6" class="com.lvhongbin.test.TestSpring" method="testIoC6">
         	<result name="success">/jsp/TestSpring.jsp</result>
         </action>
+        <action name="testSpring7" class="com.lvhongbin.test.TestSpring" method="testIoC7">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
     </package>
 </struts>

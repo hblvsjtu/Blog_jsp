@@ -5,17 +5,20 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import javax.annotation.Resource;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 
-@Component(value="book1")
-@Scope(value="prototype")
-public class Book extends ActionSupport{
-	
 
+@Component(value="book2")
+@Scope(value="prototype")
+public class Book2 extends ActionSupport{
 	/**
 	 * 
 	 */
@@ -33,13 +36,22 @@ public class Book extends ActionSupport{
 	private Map<String, Object> map;
 	private Properties property;
 	private Set<Object> set;
-	private String str="";
+	@Autowired
+	private Book book1;
+	@Resource(name="book1")
+	private Book book11;
+	private String str1="";
+	private String str2="";
+	private String str3="";
+	@Resource(name="user")
+	private User user1;
 	
 	
-	public Book() {
+	
+	public Book2() {
 	}
 	
-	public Book(double price) {
+	public Book2(double price) {
 		this.price=price;
 	}
 
@@ -137,10 +149,30 @@ public class Book extends ActionSupport{
 		System.out.println("add testSpring3 实例工厂 successfully.....");
 	}
 	public void testSpring4() {
-		System.out.println("add 注解属性注入 successfully.....");
+		System.out.println(this.user1.getName()+" add 注解创建对象 successfully.....");
+		book1.setStr(this.user1.getName()+" 混合模式 add 注解创建对象 successfully.....");
+		this.str1= book1.getStr();
 	}
 	public void testSpring5() {
-		System.out.println("使用AspectJ增强前的方法");
+		System.out.println(this.user1.getName()+" 混合模式 add 注解@Autowired属性注入 successfully.....");
+		book1.setStr(this.user1.getName()+" 混合模式 add 注解@Autowired属性注入 successfully.....");
+		this.str2= book1.getStr();
+	}
+	public void testSpring6() {
+		System.out.println(this.user1.getName()+" 混合模式 add 注解@Resource属性注入 successfully.....");
+		book11.setStr(this.user1.getName()+" 混合模式 add 注解@Resource属性注入 successfully.....");
+		this.str3= book11.getStr();
+	}
+	public void before() {
+			System.out.println("使用AspectJ前置增强的方法");
+	}
+	public void after() {
+		System.out.println("使用AspectJ后置增强的方法");
+	}
+	public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		System.out.println("方法之前..........");
+		proceedingJoinPoint.proceed();
+		System.out.println("方法之后..........");
 	}
 
 	/**
@@ -228,19 +260,49 @@ public class Book extends ActionSupport{
 		this.arr = arr;
 	}
 
+	/**
+	 * @return the str1
+	 */
+	public String getStr1() {
+		return str1;
+	}
+
 
 	/**
-	 * @return the str
+	 * @return the str2
 	 */
-	public String getStr() {
-		return str;
+	public String getStr2() {
+		return str2;
+	}
+
+
+	/**
+	 * @return the str3
+	 */
+	public String getStr3() {
+		return str3;
 	}
 
 	/**
-	 * @param str the str to set
+	 * @set the str1
 	 */
-	public void setStr(String str) {
-		this.str = str;
+	public void setStr1(String str1) {
+		this.str1=str1;
 	}
+	
+	/**
+	 * @set the str2
+	 */
+	public void setStr2(String str2) {
+		this.str2=str2;
+	}
+	
+	/**
+	 * @set the str3
+	 */
+	public void setStr3(String str3) {
+		this.str3=str3;
+	}
+
 
 }
