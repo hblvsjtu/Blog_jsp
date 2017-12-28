@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
+        
+	<context:component-scan base-package="com.lvhongbin"></context:component-scan>
+
+	<bean id="user" class="com.lvhongbin.bean.User">
+		<property name="name" value="lvhongbin"></property>
+	</bean>
+	<bean id="myDataSource" class="com.lvhongbin.bean.User">
+		<property name="name" value="myDataSource"></property>
+	</bean>
+    <bean id="book" class="com.lvhongbin.bean.Book" p:pbookCount="80%">
+    	<constructor-arg name="price" value="100"></constructor-arg>
+    	<property name="author" value="吕鸿斌"></property>
+    	<property name="user" ref="user" ></property>
+     <!-- results in a setSomeArrays(java.util.Arrays) call -->
+	    <property name="arr">
+	        <list>
+	            <value>吕</value>
+	            <value>鸿</value>
+	            <value>斌</value>
+	        </list>
+	    </property>
+	    <!-- results in a setSomeList(java.util.List) call -->
+	    <property name="list">
+	        <list>
+	            <value>a list element followed by a reference</value>
+	            <ref bean="myDataSource" />
+	        </list>
+	    </property>
+	    <!-- results in a setSomeMap(java.util.Map) call -->
+	    <property name="map">
+	        <map>
+	            <entry key="an entry" value="just some string"/>
+	            <entry key ="a ref" value-ref="myDataSource"/>
+	        </map>
+	    </property>
+	    <!-- results in a setSomeSet(java.util.Set) call -->
+	    <property name="set">
+	        <set>
+	            <value>just some string</value>
+	            <ref bean="myDataSource" />
+	        </set>
+	    </property>
+	    <!-- results in a setAdminEmails(java.util.Properties) call -->
+	    <property name="property">
+	        <props>
+	            <prop key="administrator">administrator@example.org</prop>
+	            <prop key="support">support@example.org</prop>
+	            <prop key="development">development@example.org</prop>
+	        </props>
+	    </property>
+    </bean>
+    <!-- 静态工厂 -->
+    <bean id="testSpringBookFactory" class="com.lvhongbin.factory.TestSpringBookFactory"
+    factory-method="bookFactory">
+    </bean>
+    <!-- 实例工厂 -->
+    <bean id="testSpringBookFactory2" class="com.lvhongbin.factory.TestSpringBookFactory">
+    </bean>
+    <bean id="testSpringBookFactory3" factory-bean="testSpringBookFactory2" 
+    factory-method="bookFactory2"></bean>
+    
+    <!-- AOP切面 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <bean id="book3" class="com.lvhongbin.bean.Book"></bean>
+    <bean id="book4" class="com.lvhongbin.bean.Book2"></bean>
+    <aop:config>
+   		<aop:pointcut id="pointcut1" expression="execution(* com.lvhongbin.bean.Book.testSpring5(..))"/>
+	    <aop:aspect id="myAspect" ref="book4">
+	        <aop:before pointcut-ref="pointcut1" method="before"/>
+	        <aop:around pointcut-ref="pointcut1" method="around"/>
+	        <aop:after-returning pointcut-ref="pointcut1" method="after"/>
+	    </aop:aspect>
+	</aop:config>
+	
+	<!-- spring事务管理 -->
+	<bean id="springUserService" class="com.lvhongbin.service.SpringUserService">
+		<property name="springUserDao" ref="springUserDao"></property>
+	</bean>
+	<bean id="springUserDao" class="com.lvhongbin.dao.SpringUserDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>	
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>	
+	</bean>
+		<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jsp_db?useSSL=true"></property>
+		<property name="User" value="root"></property>
+		<property name="password" value="12345687"></property>
+	</bean>
+	
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- 配置事务的增强 -->
+	<tx:advice id="txadvice" transaction-manager="transactionManager">
+		<!-- 做事务的操作 -->
+		<tx:attributes>
+			<!-- 设置进行事务操作的方法匹配规则 -->
+			<tx:method name="add" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置切面 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.lvhongbin.service.SpringUserService.*(..))" id="pointcut2"/>
+		<aop:advisor advice-ref="txadvice" pointcut-ref="pointcut2"/>
+	</aop:config>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>

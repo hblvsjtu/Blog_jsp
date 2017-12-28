@@ -8,6 +8,10 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -17,7 +21,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 @Component(value="book2")
-@Scope(value="prototype")
+@Scope(value="singleton")
+@Aspect
 public class Book2 extends ActionSupport{
 	/**
 	 * 
@@ -173,6 +178,21 @@ public class Book2 extends ActionSupport{
 		System.out.println("方法之前..........");
 		proceedingJoinPoint.proceed();
 		System.out.println("方法之后..........");
+	}
+	
+	@Before(value="execution(* com.lvhongbin.bean.Book.testSpring6())")
+	public void before1() {
+		System.out.println("注解方式使用AspectJ前置增强的方法");
+	}
+	@AfterReturning(value="execution(* com.lvhongbin.bean.Book.testSpring6())")
+	public void after1() {
+		System.out.println("注解方式使用AspectJ后置增强的方法");
+	}
+	@Around(value="execution(* com.lvhongbin.bean.Book.testSpring6())")
+	public void around1(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		System.out.println("注解方式方法之前..........");
+		proceedingJoinPoint.proceed();
+		System.out.println("注解方式方法之后..........");
 	}
 
 	/**

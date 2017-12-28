@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 @Component(value="book1")
-@Scope(value="prototype")
+@Scope(value="singleton")
 public class Book extends ActionSupport{
 	
 
@@ -34,6 +34,8 @@ public class Book extends ActionSupport{
 	private Properties property;
 	private Set<Object> set;
 	private String str="";
+	private String bookname;
+	private String publicyear;
 	
 	
 	public Book() {
@@ -140,7 +142,10 @@ public class Book extends ActionSupport{
 		System.out.println("add 注解属性注入 successfully.....");
 	}
 	public void testSpring5() {
-		System.out.println("使用AspectJ增强前的方法");
+		System.out.println("配置文件方式使用AspectJ的方法");
+	}
+	public void testSpring6() {
+		System.out.println("注解方式使用AspectJ的方法");
 	}
 
 	/**
@@ -241,6 +246,34 @@ public class Book extends ActionSupport{
 	 */
 	public void setStr(String str) {
 		this.str = str;
+	}
+
+	/**
+	 * @return the bookname
+	 */
+	public String getBookname() {
+		return bookname;
+	}
+
+	/**
+	 * @param bookname the bookname to set
+	 */
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
+	}
+
+	/**
+	 * @return the publicyear
+	 */
+	public String getPublicyear() {
+		return publicyear;
+	}
+
+	/**
+	 * @param publicyear the publicyear to set
+	 */
+	public void setPublicyear(String publicyear) {
+		this.publicyear = publicyear;
 	}
 
 }

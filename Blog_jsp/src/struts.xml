@@ -84,7 +84,25 @@
         <action name="testSpring6" class="com.lvhongbin.test.TestSpring" method="testIoC6">
         	<result name="success">/jsp/TestSpring.jsp</result>
         </action>
-        <action name="testSpring7" class="com.lvhongbin.test.TestSpring" method="testIoC7">
+        <action name="testAop1" class="com.lvhongbin.test.TestSpring" method="testAop1">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testAop2" class="com.lvhongbin.test.TestSpring" method="testAop2">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testJDBCTemperate1" class="com.lvhongbin.test.TestSpring" method="testJDBCTemperate1">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testJDBCTemperate2" class="com.lvhongbin.test.TestSpring" method="testJDBCTemperate2">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testJDBCTemperate3" class="com.lvhongbin.test.TestSpring" method="testJDBCTemperate3">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="testJDBCTemperate4" class="com.lvhongbin.test.TestSpring" method="testJDBCTemperate4">
+        	<result name="success">/jsp/TestSpring.jsp</result>
+        </action>
+        <action name="comboPool" class="com.lvhongbin.test.TestSpring" method="comboPool">
         	<result name="success">/jsp/TestSpring.jsp</result>
         </action>
     </package>
