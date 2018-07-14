@@ -38,14 +38,17 @@
 		        value="<%= application.getAttribute("count") %>" ><br>
 		        当前会话内访问数：<input type="text"  id="vistorNumberTime" width="auto" onclick="inialVistorNumberTime()" >
 		    </h5>
+		    <h1 class="title" >不良工科生的全栈之路</h1>
 		</header>
 		<nav id="myNav" draggable="true">
 		        <p>	<MARK><b>技术分类</b></MARK></p>
 		        <ul>
-		            <li><a href="#theam_桌面端">桌面端</a></li>
-		            <li><a href="#theam_移动端">移动端</a></li>
-		            <li><a href="#theam_网页端">网页端</a></li>
-		            <li><a href="#theam_服务器端">服务器端</a></li>
+		            <li><a href="#theam_base">基础知识</a></li>
+		            <li><a href="#theam_lang">基本语言</a></li>
+		            <li><a href="#theam_frontend">基础前端</a></li>
+		            <li><a href="#theam_module">工具化与模块化</a></li>
+		            <li><a href="#theam_project">个人项目</a></li>
+		            <li><a href="https://github.com/hblvsjtu">个人GitHub</a></li>
 		            <li><a href="/Blog_jsp/html/Login.html">用户登陆界面</a></li>
 		            <li><a href="/Blog_jsp/TestServlet">访问TestServlet</a></li>
 		            <li><a href="/Blog_jsp/TestJDBCServlet">访问TestJDBC</a></li>
@@ -60,48 +63,55 @@
 		<div id="articalContainer">
 			<div id="container">
 			    <div id="myArticle">
-			        <section id="theam_桌面端">
+			        <section id="theam_base">
 			            <HEADER>
-			                <P>桌面端</P>
+			                <P>基础知识</P>
 			            </HEADER>
 			            <ul>
-			                <li>C/C++</li>
-			                <li>Java</li>
-			                <li>VB</li>
+			                <li><a href="https://github.com/hblvsjtu/CSAPP_Study">CSAPP 《Computer Systems A Programmer’s Perspective(3rd)》</a></li>
+			                <li><a href="https://github.com/hblvsjtu/Computer_Networking_Study">Computer_Networking_Study 《网络基础 自顶而下》</a></li>
+			                <li><a href="https://github.com/hblvsjtu/IntroductionToAlgorithms_Study">IntroductionToAlgorithms 《算法导论》</a></li>
 			            </ul>
 			        </section>
-			        <section id="theam_移动端" >
+			        <section id="theam_lang" >
 			            <HEADER>
-			                <P>移动端</P>
+			                <P>基本语言</P>
 			            </HEADER>
 			            <ul>
-			                <li>Android</li>
-			                <li>IOS</li>
+			                <li><a href="https://github.com/hblvsjtu/C_Study">C语言 《C primer plus》</a></li>
+			                <li><a href="https://github.com/hblvsjtu/Linux_Study">Linux 《鸟哥的Linux私房菜》</a></li>
+			                <li><a href="https://github.com/hblvsjtu/Git_Study">git 《Git 版本控制管理》</a></li>
 			            </ul>
 			        </section>
-			        <section id="theam_网页端" >
+			        <section id="theam_frontend" >
 			            <HEADER>
-			                <P>网页端</P>
+			                <P>基础前端</P>
 			            </HEADER>
 			            <ul>
-			                <li>HTML/XHTML/HTML5</li>
-			                <li>CSS</li>
-			                <li>Java Script</li>
-			                <li>Node.js</li>
-			                <li>PHP</li>
+			                <li><a href="https://github.com/hblvsjtu/HTML_Study">HTML</a></li>
+			                <li><a href="https://github.com/hblvsjtu/CSS_Study">CSS</a></li>
+			                <li><a href="https://github.com/hblvsjtu/JavaScript_Study2.0">JS</a></li>
+			                <li><a href="https://github.com/hblvsjtu/ES6_Study">ES6</a></li>
 			            </ul>
 			        </section>
-			        <section id="theam_服务器端" >
+			        <section id="theam_module" >
 			            <HEADER>
-			                <P>服务器端</P>
+			                <P>工具化与模块化</P>
 			            </HEADER>
 			            <ul>
-			                <li>UNIX/Linux</li>
-			                <li>SQL Sever</li>
-			                <li>MySQL</li>
-			                <li>MongoDB</li>
-			                <li><a href="/Blog_jsp/html/hibernate.html">Hibernate</a></li>
-			                <li><a href="/Blog_jsp/html/jdbc.html">Java Web数据库操作</a></li>
+			                <li><a href="https://github.com/hblvsjtu/React_Study">React</a></li>
+			                <li><a href="https://github.com/hblvsjtu/Node_JS_Study">Node.js</a></li>
+			                <li><a href="https://github.com/hblvsjtu/sass_Study">SASS</a></li>
+			                <li><a href="hhttps://github.com/hblvsjtu/webpack_Study">webpack</a></li>
+			            </ul>
+			        </section>
+			        <section id="theam_project" >
+			            <HEADER>
+			                <P>个人项目</P>
+			            </HEADER>
+			            <ul>
+			                <li><a href="http://hblvsjtu.picp.io:51688/CompatTest/xiaomi/Index.html">高仿小米商城</a></li>
+			                <li><a href="http://hblvsjtu.picp.io:51688/CompatTest/BaiduHomePage.html">高仿百度首页</a></li>
 			            </ul>
 			        </section>
 			    </div>

@@ -72,11 +72,10 @@ function setPassword(){
 }
 
 function workerMethod() {
-    var worker = new Worker("JavaScript/worker.js");
-    worker.postMessage("helloworld");
-    worker.onmessage = function (evt) {
-        //console.log(evt.data);
-        alert(evt.data);
+    var myWork=new Worker("../js/myWorker.js");
+    myWork.postMessage("hello");
+    myWork.onmessage=function (e) {
+        alert(e.data);
     }
 }
 
@@ -117,8 +116,17 @@ function showRealTime() {
     var month = myTime.getMonth();
     var date = myTime.getDate();
     var hour = myTime.getHours();
+    if (hour<10) {
+    	hour = "0" + hour;
+    }
     var minute = myTime.getMinutes();
+    if (minute<10) {
+    	minute = "0" + minute;
+    }
     var second = myTime.getSeconds();
+    if (second<10) {
+    	second = "0" + second;
+    }
     var now = year+"年"+(month+1)+"月"+date+"日  "+hour+":"+minute+":"+second;
     document.getElementById("myTime").innerHTML=now;
 }

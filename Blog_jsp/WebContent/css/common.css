@@ -19,13 +19,39 @@ body{
 		}
 	
 				nav{
+					float: left;
 					position:fixed;
 				    line-height:200%;
 				    background-color:#eeeeee;
-				    height:450px;
 				    width:13em;
 				    padding:5px;
 					z-index: 1;
+				}
+				
+				nav ul, nav ul li {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					float: left;
+					width: 11em;
+				}
+				nav ul li {
+					height: 2em;
+					padding: 0 1em;
+				}
+				nav ul li:hover {
+					background: #FFCC33;
+				}
+				nav ul li a {
+					text-decoration: none;
+					color: black;
+				}
+				
+				nav ul li:hover a{
+					color: white;
+				}
+				nav p {
+					clear: both;
 				}
 				
 				#articalContainer{

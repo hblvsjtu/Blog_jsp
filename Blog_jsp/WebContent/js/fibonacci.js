@@ -7,5 +7,6 @@ function fibonacci(n){
 };
 onmessage=function (e) {
     var N=parseInt(e.data,10);
+    console.log("result=", fibonacci(N));
     postMessage(fibonacci(N));
 }

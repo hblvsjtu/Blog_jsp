@@ -151,7 +151,7 @@ function handleCacheError(){
 }
 
 function fibonacci() {
-    var work_fibonacci=new Worker("JavaScript/fibonacci.js");
+    var work_fibonacci=new Worker("../js/fibonacci.js");
     work_fibonacci.postMessage(document.getElementById("text_fibonacci").value);
     work_fibonacci.onmessage=function (e) {
         document.getElementById("result_fibonacci").value=e.data;
