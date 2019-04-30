@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+#library{
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	align:center;
+	-moz-box-align:center;
+	-webkit-box-align:center;
+	padding:0.5em;
+	
+}
+
+		#bookInfor{
+			margin-left:16em;
+			width:20em;
+			margin:1em;
+		}
+				#bookInforForm{  
+				   width:100%
+				}
+						#bookInforTable{  
+				       		width:100%
+						}
+
+		#checkEmailAndPhone{
+			width:20em;
+			margin:1em;
+		}
+				#checkForm{  
+				      width:100%
+				}
+						#checkTable{  
+							width:100%       
+						}
+		#libraryUpload{	
+			position:relative;
+			width:10em;	
+		}
+		
+		#libraryCheckloginName{
+			position:relative;	
+			box-flex:1;
+			-moz-box-flex:1;
+			-webkit-box-flex:1;		
+		}
+#bookInfor,#checkEmailAndPhone,#libraryUpload,#libraryCheckloginName{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}				

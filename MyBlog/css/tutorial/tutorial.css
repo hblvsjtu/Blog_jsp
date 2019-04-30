@@ -1,0 +1,324 @@
+@charset "UTF-8";
+
+body{
+	margin: 0em;
+	padding: 0em;
+}
+
+header{
+	width:100%;
+	background-color: rgb(68,114,196);
+	color: white;
+	font: bolder;
+	font-size:4.5em;
+	text-align: center;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+Table{
+	border-collapse:collapse;
+	font-size: 1.5em;
+	font: bold;
+	color: black;
+}
+
+#container{
+	width: 95%;
+	margin: 0em auto;
+}
+
+	#jump{
+		width: 95%;
+		background-color: rgb(225,192,0);
+		color: white;
+		height: 3em;
+		text-align: center;
+		font-size: 1em;
+		padding-top: 1em;
+	}
+
+	#nav{
+		width: 20%;
+		position:fixed;
+		margin-top:1em;
+		background-color: #c0c0c0;
+		color: white;
+		font: bold;
+	}
+
+	#nav ul li{
+		line-height: 1.5em;
+		color: white;
+		font: bold;
+		list-style: none;
+	}	
+	#articleContainer{
+		margin-left:23%;
+		margin-right:6%;
+		
+	}
+					
+		#articleContainer article header{
+			background-color: white;
+			color: rgb(68,114,196);
+		}
+		
+		#articleContainer article section{
+			background-color: rgb(68,114,196);
+			color: white;
+		}
+		
+		
+		.classArticle{
+			display: box;
+			display: -moz-box;
+			display: -webkit-box;
+			margin-top: 1em;
+			width:100%;
+		}
+		
+		.classArticleInfo{
+			width:15%;
+			background-color: rgb(225,192,0);
+			color: white;
+			text-align: center;
+			padding-top: 0.5em;
+			font-size:1em;
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+		
+		.classArticleContent{
+			color: rgb(68,114,196);
+			font-size:1em;
+			margin-left: 1em;
+			word-wrap:break-word;  
+		    word-break:break-all;  
+		    overflow: hidden;
+		    -moz-box-flex:1;
+			-webkit-box-flex:1; 
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box; 
+		}
+		
+				
+  	#comment{
+  		margin-left:23%;
+		margin-right:6%;
+  		background-color: rgb(225,192,0);
+		margin-top: 5em;
+  	}
+		#commentAreaContainer {
+			box-ordinal-group: 2;
+			-webkit-box-ordinal-group: 2;
+			-moz-box-ordinal-group: 2;
+			box-flex: 1;
+			-webkit-box-flex: 1;
+			-moz-box-flex: 1;
+		}
+
+			#commentFormDiv{
+				box-ordinal-group: 1;
+				-webkit-box-ordinal-group: 1;
+				-moz-box-ordinal-group: 1;
+				box-flex: 1;
+				-webkit-box-flex: 1;
+				-moz-box-flex: 1;
+				text-align: center;
+				width: 90%;
+				margin: 0.1em auto;
+			}
+				#commentForm {
+					width: 100%;
+				}
+					#commentTable {
+						width: 100%;
+						border: 1px solid #eeeeee;
+					}
+						#commentTable td{
+							border: 1px solid #eeeeee;
+							line-height: 1em;
+						}
+			#commentInfoFormDiv{
+				box-ordinal-group: 2;
+				-webkit-box-ordinal-group: 2;
+				-moz-box-ordinal-group: 2;
+				height: 10em;
+				text-align: center;
+				width: 90%;
+				margin: 0.1em auto;
+				margin-top: 1em;
+			}
+				#commenterInfoForm {
+					width: 100%;
+				}
+					#commenterInfoTable{
+						width: 100%;
+						border: none;
+					}
+					#commenterInfoTable td{
+						border: none;
+					}
+					#commenterInfoTable input,textarea{
+						width: 80%;
+					}
+					#commenterInfo input{
+						line-height:0.8em ;
+					}
+					#commenterInfo textarea{
+						line-height:0.8em ;
+					}
+			#commentButtonDiv{
+				box-ordinal-group: 3;
+				-webkit-box-ordinal-group: 3;
+				-moz-box-ordinal-group: 3;
+				text-align: center;
+			}
+		#commentFormDiv,#commentInfoFormDiv,commentButtonDiv{
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+	  	
+	  	footer {
+		    background-color:white;
+		    color:black;
+		    clear:both;
+		    text-align:center;
+		    padding:5px;
+		}
+	
+	
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"等线 Light";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线 Light";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"标题 1 字符";
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	page-break-after:avoid;
+	font-size:22.0pt;
+	font-family:"Times New Roman",serif;}
+h2
+	{mso-style-link:"标题 2 字符";
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"等线 Light";}
+h3
+	{mso-style-link:"标题 3 字符";
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.1
+	{mso-style-name:"标题 1 字符";
+	mso-style-link:"标题 1";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"标题 2 字符";
+	mso-style-link:"标题 2";
+	font-family:"等线 Light";
+	font-weight:bold;}
+span.3
+	{mso-style-name:"标题 3 字符";
+	mso-style-link:"标题 3";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.a
+	{mso-style-name:"页眉 字符";
+	mso-style-link:页眉;
+	font-family:"Times New Roman",serif;}
+span.a0
+	{mso-style-name:"页脚 字符";
+	mso-style-link:页脚;
+	font-family:"Times New Roman",serif;}
+.MsoChpDefault
+	{font-family:等线;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:16.3pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+	
+	
+	
+	
+	
+	
+	
+	

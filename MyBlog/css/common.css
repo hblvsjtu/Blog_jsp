@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/* 用于检查空白溢出的方法 
+ 	* {
+    	background: #000 !important;
+     	color: #0f0 !important;
+   		outline: solid #f00 1px !important;
+ 	}
+*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+		#bodyContainer{
+			width:75em;
+			margin: 0em  auto;
+		}
+	
+				nav{
+					position:fixed;
+				    line-height:200%;
+				    background-color:#eeeeee;
+				    height:400px;
+				    width:13em;
+				    padding:5px;
+					z-index: 1;
+				}
+				
+				#articalContainer{
+					margin-left: 13.5em;
+					z-index:2;
+				}
+				
+				
+				footer {
+				    background-color:black;
+				    color:white;
+				    clear:both;
+				    text-align:center;
+				    padding:5px;
+				}
+				
+						Table{
+							border-collapse:collapse;
+						}
+
